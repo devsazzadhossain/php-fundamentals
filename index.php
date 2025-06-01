@@ -45,33 +45,49 @@
 
 </style>
 
-    <div class="php-coding">
+<div class="php-coding">
 
-        <div class="header">
-            <h1><?php echo "PHP Fundamentals";?></h1>
-        </div>
+    <div class="header">
+        <h1><?php echo "PHP Fundamentals";?></h1>
+    </div>
 
-        <div class="main-content">
+    <div class="main-content">
 
-            <?php echo "Hello, PHP World!"; ?> <br>
-            <h1><?php echo "Hello, PHP World";?></h1><br>
-            <?php echo "Hello, php World"; ?><br>
 
-            <?php 
-                $a = "5";
-                $b = "10";
-                $c = $a+$b;
-                echo "total value = ".$c." ok fine";
+        <?php echo "Hello, PHP World!"; ?> <br>
+        <h1><?php echo "Hello, PHP World";?></h1><br>
+        <?php echo "Hello, php World"; ?><br>
+
+        <?php 
+            $a = "5";
+            $b = "10";
+            $c = $a+$b;
+            echo "total value = ".$c." ok fine";
+        ?>
+
+        <?php 
+            echo "</br>";
+            echo "This is the output using echo";
+            echo "</br>";
+            echo "This is the ", " output using echo";
+            print "</br>";
+            print "This is the output using print";
+            //print "This is the ", " output using print";
+            print "</br>";
+            $a = print("Sazzad");
+            var_dump($a);
             ?>
 
-        </div>
-
-        <footer class="footer-area">
-            <a href="https://github.com/sazzadhossainmit"><?php echo "https://github.com/sazzadhossainmit";?></a>
-        </footer>
 
 
     </div>
+
+    <footer class="footer-area">
+        <a href="https://github.com/sazzadhossainmit"><?php echo "https://github.com/sazzadhossainmit";?></a>
+    </footer>
+
+
+</div>
 
 
 </body>
