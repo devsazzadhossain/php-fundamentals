@@ -61,7 +61,7 @@
         5. Array
         6. Object 
         7. Null
-        8. Resource <br/><br/>
+        8. Resource  <br/><br/>
 
         <u>1. String *Text (inside quotes) </u><br/>
         <?php
@@ -120,7 +120,7 @@
            // $file = fopen("example.txt", "r");
         ?>
 
-
+        <?php echo "Working from home PC";?>
 
     </div>
 
