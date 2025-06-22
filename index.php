@@ -53,42 +53,23 @@
 
     <div class="main-content">
 
-        <h2>PHP string methods (video part 07)</h2>
-        1. String lenth (strlen)
-        2. PHP word count (str_word_count)
-        3. String reverse (strrev)
-        4. Search string position - strpos($x, "string");
-        5. String replace -str_replace("PHP", "JAVA", $x);
+        <h2>PHP constants (tutorial part 08)</h2>
         <br/><br/>
 
         <?php 
-            $x = "I love PHP";
-            echo strlen($x);
-            echo "<br/><br/>";
-        ?>
+            define("NAME", "Hi, I am Sazzad");
+
+            function hey_sazzad(){
+                echo NAME;
+            }
+
+          hey_sazzad();
+
+        ?><br/>
 
         <?php
-            $x = "PHP word count method";
-            echo str_word_count($x);
-            echo "<br/><br/>";
-        ?>
-
-        <?php
-            $x = "PHP string reverse method";
-            echo strrev($x);
-            echo "<br/><br/>";
-        ?>
-
-        <?php
-            $x = "PHP search string position method";
-            echo strpos($x, "string");
-            echo "<br/><br/>";
-        ?>
-
-        <?php
-            $x = "PHP string replace method";
-            echo str_replace("PHP", "JAVA", $x);
-            echo "<br/><br/>";
+            const MY_CONSTANT = 123;
+            echo MY_CONSTANT;
         ?>
 
     </div>
