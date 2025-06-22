@@ -53,74 +53,43 @@
 
     <div class="main-content">
 
-        <h2>PHP datatypes</h2>
-        1. String
-        2. Integer
-        3. Float/Double
-        4. Boolean
-        5. Array
-        6. Object 
-        7. Null
-        8. Resource  <br/><br/>
+        <h2>PHP string methods (video part 07)</h2>
+        1. String lenth (strlen)
+        2. PHP word count (str_word_count)
+        3. String reverse (strrev)
+        4. Search string position - strpos($x, "string");
+        5. String replace -str_replace("PHP", "JAVA", $x);
+        <br/><br/>
 
-        <u>1. String *Text (inside quotes) </u><br/>
-        <?php
-            $a = "This is a string";
-            var_dump($a);
-            echo "<br/>", "<br/>";
-        ?>
-        <u>2. Integer *Whole numbers (positive or negative) </u><br/>
         <?php 
-            $x = 10;
-            var_dump($x);
-            echo "<br/>", "<br/>";
-        ?>
-        <u>3. Float/Double (Decimal numbers) </u><br/>
-        <?php 
-            $x = 28.36;
-            var_dump($x);
-            echo "<br/>", "<br/>";
-        ?>
-        <u>4. Boolean (Only two values: true or false) </u><br/>
-        <?php
-            $x = false;
-            var_dump($x);
-            echo "<br/>", "<br/>";
-        ?>
-        <u>5. Array (A group of values in one variable) </u><br/>
-        <?php
-            $x = array("Sazzad", "Sajedur", "Raihan");
-            var_dump($x);
-            echo "<br/>", "<br/>";
-        ?>
-        <u>6. Object *A variable that holds data and functions(from a class) </u><br/>
-        <?php
-            class student {
-                function department (){
-                    return "Physics";
-                }
-                function details (){
-                    echo $this->department();
-                }
-            }
-
-            $st = new student();
-            $st->details();
-            echo "<br/>", "<br/>";
-        ?>
-        <u>7. Null (A variable with no value) </u><br/>
-        <?php
-            //$x = "I love PHP";
-            $x = null;
-            var_dump($x);
-            echo "<br/>", "<br/>";
-        ?>
-        <u>8. Resource (holds a reference to an external thing — like a file, database connection, or image) </u><br/>
-        <?php
-           // $file = fopen("example.txt", "r");
+            $x = "I love PHP";
+            echo strlen($x);
+            echo "<br/><br/>";
         ?>
 
-        <?php echo "Working from home PC";?>
+        <?php
+            $x = "PHP word count method";
+            echo str_word_count($x);
+            echo "<br/><br/>";
+        ?>
+
+        <?php
+            $x = "PHP string reverse method";
+            echo strrev($x);
+            echo "<br/><br/>";
+        ?>
+
+        <?php
+            $x = "PHP search string position method";
+            echo strpos($x, "string");
+            echo "<br/><br/>";
+        ?>
+
+        <?php
+            $x = "PHP string replace method";
+            echo str_replace("PHP", "JAVA", $x);
+            echo "<br/><br/>";
+        ?>
 
     </div>
 
