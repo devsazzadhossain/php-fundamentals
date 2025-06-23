@@ -53,91 +53,38 @@
 
     <div class="main-content">
 
-        <h2>PHP Operators (tutorial part 09)</h2>
-        1. Arithmetic operators
-        2. Assignment operators
-        3. Comparison operators
-        4. Increment/Decrement operators
-        5. Logical operators
-        6. String operators
-        7. Array operators
-        <br/><br/>
-        <hr/>6. String operators <hr/>
-
-        <?php
-            $x = "I am learning";
-            $y = " PHP";
-            $x .= $y;
-            echo $x;
-        ?>
-
-        <br/><br/>
-        <hr/>7. Array operators (The PHP array operators are used to compare arrays.) <hr/>
-        <?php
-            $x = array (
-                "a" => "Apple",
-                "b" => "Banana"
-            );
-            $y = array (
-                "c" => "Cat",
-                "d" => "Date"
-            );
-            var_dump($x+$y);
-            // union (Union of $x and $y)
+        <h2>PHP Conditional Statements </h2><hr/><br/>
+        
+        <!-- The if statement executes some code if one condition is true -->
+        <?php 
+            $x = 15;
+            if ($x > 10){
+                echo "15 is greater than 10";
+            }
         ?>
         <br/><br/>
-        <?php
-            $x = array (
-                "a" => "Apple",
-                "b" => "Banana"
-            );
-            $y = array (
-                "c" => "Cat",
-                "d" => "Date"
-            );
-            var_dump($x == $y);
-            // equality (Returns true if $x and $y have the same key/value pairs)
+        <!-- The if...else statement executes some code if a condition is true and another code if that condition is false -->
+        <?php 
+            $x = 5;
+            if ($x > 10){
+                echo "15 is greater than 10";
+            } else {
+                echo "Wrong";
+            }
         ?>
         <br/><br/>
+        <!-- The if...elseif...else statement executes different codes for more than two conditions. -->
         <?php
-            $x = array (
-                "a" => "Apple",
-                "b" => "Banana"
-            );
-            $y = array (
-                "c" => "Cat",
-                "d" => "Date"
-            );
-            var_dump($x === $y);
-            // Identity (Returns true if $x and $y have the same key/value pairs in the same order and of the same types)
-        ?>
-        <br/><br/>
-        <?php
-            $x = array (
-                "a" => "Apple",
-                "b" => "Banana"
-            );
-            $y = array (
-                "c" => "Cat",
-                "d" => "Date"
-            );
-            var_dump($x != $y);
-            // Inequality (Returns true if $x is not equal to $y)
-            // != , <>
-        ?>
-
-        <br/><br/>
-        <?php
-            $x = array (
-                "a" => "Apple",
-                "b" => "Banana"
-            );
-            $y = array (
-                "c" => "Cat",
-                "d" => "Date"
-            );
-            var_dump($x !== $y);
-            // Non-Identity (Returns true if $x is not identical to $y)
+            $x = 10;
+            if ($x > 15){
+                echo ("x is greater than 15");
+            } elseif ($x > 12){
+                echo "x is greater than 12";
+            } elseif ($x > 11){
+                echo "x is greater than 11";
+            } else {
+                echo "x is less than 11";
+            }
         ?>
 
 
