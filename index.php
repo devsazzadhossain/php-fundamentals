@@ -53,24 +53,93 @@
 
     <div class="main-content">
 
-        <h2>PHP constants (tutorial part 08)</h2>
+        <h2>PHP Operators (tutorial part 09)</h2>
+        1. Arithmetic operators
+        2. Assignment operators
+        3. Comparison operators
+        4. Increment/Decrement operators
+        5. Logical operators
+        6. String operators
+        7. Array operators
         <br/><br/>
-
-        <?php 
-            define("NAME", "Hi, I am Sazzad");
-
-            function hey_sazzad(){
-                echo NAME;
-            }
-
-          hey_sazzad();
-
-        ?><br/>
+        <hr/>6. String operators <hr/>
 
         <?php
-            const MY_CONSTANT = 123;
-            echo MY_CONSTANT;
+            $x = "I am learning";
+            $y = " PHP";
+            $x .= $y;
+            echo $x;
         ?>
+
+        <br/><br/>
+        <hr/>7. Array operators (The PHP array operators are used to compare arrays.) <hr/>
+        <?php
+            $x = array (
+                "a" => "Apple",
+                "b" => "Banana"
+            );
+            $y = array (
+                "c" => "Cat",
+                "d" => "Date"
+            );
+            var_dump($x+$y);
+            // union (Union of $x and $y)
+        ?>
+        <br/><br/>
+        <?php
+            $x = array (
+                "a" => "Apple",
+                "b" => "Banana"
+            );
+            $y = array (
+                "c" => "Cat",
+                "d" => "Date"
+            );
+            var_dump($x == $y);
+            // equality (Returns true if $x and $y have the same key/value pairs)
+        ?>
+        <br/><br/>
+        <?php
+            $x = array (
+                "a" => "Apple",
+                "b" => "Banana"
+            );
+            $y = array (
+                "c" => "Cat",
+                "d" => "Date"
+            );
+            var_dump($x === $y);
+            // Identity (Returns true if $x and $y have the same key/value pairs in the same order and of the same types)
+        ?>
+        <br/><br/>
+        <?php
+            $x = array (
+                "a" => "Apple",
+                "b" => "Banana"
+            );
+            $y = array (
+                "c" => "Cat",
+                "d" => "Date"
+            );
+            var_dump($x != $y);
+            // Inequality (Returns true if $x is not equal to $y)
+            // != , <>
+        ?>
+
+        <br/><br/>
+        <?php
+            $x = array (
+                "a" => "Apple",
+                "b" => "Banana"
+            );
+            $y = array (
+                "c" => "Cat",
+                "d" => "Date"
+            );
+            var_dump($x !== $y);
+            // Non-Identity (Returns true if $x is not identical to $y)
+        ?>
+
 
     </div>
 
