@@ -53,31 +53,32 @@
 
     <div class="main-content">
 
-        <h2>PHP switch Statement </h2><hr/><br/>
+        <h2>PHP Loops </h2><hr/><br/>
         
+        <!-- while loop -->
         <?php
-            $coding = "php";
+            $x = 1;
+            while ($x <= 5){
+                echo "The number is $x <br/>";
+                $x++;
+            }
+            echo "<hr/>";
+        ?>
 
-            switch ($coding){
+        <!-- do...while loop --><br/>
+        <?php
+            $x = 1;
+            do {
+                echo "The number is $x <br/>";
+                $x++;
+            } while ($x <= 5);
+            echo "<hr/>";
+        ?>
 
-                case "html":
-                    echo "I love html";
-                break;
-
-                case "css":
-                    echo "I love css";
-                break;
-
-                case "java":
-                    echo "I love java";
-                break;
-
-                case "php":
-                    echo "I love php";
-                break;
-
-                default:
-                echo "You do not love php";
+        <!-- for loop --><br/>
+        <?php
+            for ($i = 1; $i <= 10; $i++){
+                echo "The number is $i <br/>";
             }
         ?>
 
