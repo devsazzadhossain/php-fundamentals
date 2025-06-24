@@ -53,37 +53,31 @@
 
     <div class="main-content">
 
-        <h2>PHP Conditional Statements </h2><hr/><br/>
+        <h2>PHP switch Statement </h2><hr/><br/>
         
-        <!-- The if statement executes some code if one condition is true -->
-        <?php 
-            $x = 15;
-            if ($x > 10){
-                echo "15 is greater than 10";
-            }
-        ?>
-        <br/><br/>
-        <!-- The if...else statement executes some code if a condition is true and another code if that condition is false -->
-        <?php 
-            $x = 5;
-            if ($x > 10){
-                echo "15 is greater than 10";
-            } else {
-                echo "Wrong";
-            }
-        ?>
-        <br/><br/>
-        <!-- The if...elseif...else statement executes different codes for more than two conditions. -->
         <?php
-            $x = 10;
-            if ($x > 15){
-                echo ("x is greater than 15");
-            } elseif ($x > 12){
-                echo "x is greater than 12";
-            } elseif ($x > 11){
-                echo "x is greater than 11";
-            } else {
-                echo "x is less than 11";
+            $coding = "php";
+
+            switch ($coding){
+
+                case "html":
+                    echo "I love html";
+                break;
+
+                case "css":
+                    echo "I love css";
+                break;
+
+                case "java":
+                    echo "I love java";
+                break;
+
+                case "php":
+                    echo "I love php";
+                break;
+
+                default:
+                echo "You do not love php";
             }
         ?>
 
