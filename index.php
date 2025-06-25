@@ -82,6 +82,14 @@
             }
         ?>
 
+        <!-- foreach loop --><br/>
+        <?php
+            $colors = array ("blue", "green", "red", "black");
+            foreach ($colors as $x){
+                echo "$x <br/>";
+            }
+        ?>
+
 
     </div>
 
