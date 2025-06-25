@@ -53,61 +53,26 @@
 
     <div class="main-content">
 
-        <h2>PHP Arrays </h2><hr/><br/>
-        <!-- Indexed array -->
+        <h2>PHP Sorting Arrays </h2><hr/><br/>
+        <!-- Sorting Arrays -->
         <?php
-            $x = array(1,3,5,7,9);
-            echo $x[3];
-            $x[0] = 1;
-            $x[1] = 3;
-            $x[2] = 5;
-            $x[3] = 7;
-            $x[4] = 9;
-        ?><br/>
-
-        <!-- Print indexed array values in loop -->
-        <?php
-            $x = array(1,3,5,7,9);
-            $lenth = count($x);
-
+            // $names = array("Rafi", "Sazzad", "Munshi", "Arif", "Sajedur");
+            $names = array(52, 45, 1, 10, 50);
+            sort($names);
+            $lenth = count($names);
             for ($i = 0; $i < $lenth; $i++){
-                echo $x[$i];
+                echo $names[$i];
+                echo ("<br/>");
+            }
+        ?><br/><hr/><br/>
+
+        <?php
+            $age = array("Rafi"=> "21", "Arif" => "28", "Sazzad" => "22", "Sajedur" => "26");
+            ksort($age);
+
+            foreach ($age as $key => $value){
+                echo "Name = ".$key. ", age = ".$value;
                 echo "<br/>";
-            }
-        ?><br/><hr/><br>
-
-        <!-- PHP associative array -->
-        <?php
-            $ages = array("sajedur" => "26", "arif" => "28", "sazzad" => "22");
-            
-            $ages["sajedur"] = "26";
-            $ages["arif"] = "28";
-            $ages["sazzad"] = "22";
-
-            foreach($ages as $x => $age){
-                echo $x. " is " .$age. " years old". "<br/>"; 
-            }
-
-        ?><br/><hr/><br>
-
-        <!-- PHP multidimensional array -->
-        <?php
-            $cars = array(
-                array("BMW", 15, 50),
-                array("Volvo", 10, 30),
-                array("Audi", 25, 40),
-                array("Toyota", 11, 35)
-            );
-
-            // echo $cars[1][2];
-
-            for ($row = 0; $row < 4; $row++){
-                echo "<p> Row number $row </p>";
-                echo "<ul>";
-                for ($col = 0; $col < 3; $col++){
-                    echo "<li> ".$cars[$row][$col]." </li>";
-                }
-                echo"</ul>";
             }
 
         ?>
