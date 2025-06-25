@@ -53,36 +53,63 @@
 
     <div class="main-content">
 
-        <h2>PHP Functions </h2><hr/><br/>
-        
+        <h2>PHP Arrays </h2><hr/><br/>
+        <!-- Indexed array -->
         <?php
-            function school($name, $year){
-                echo "$name is established in $year <br/>";
+            $x = array(1,3,5,7,9);
+            echo $x[3];
+            $x[0] = 1;
+            $x[1] = 3;
+            $x[2] = 5;
+            $x[3] = 7;
+            $x[4] = 9;
+        ?><br/>
+
+        <!-- Print indexed array values in loop -->
+        <?php
+            $x = array(1,3,5,7,9);
+            $lenth = count($x);
+
+            for ($i = 0; $i < $lenth; $i++){
+                echo $x[$i];
+                echo "<br/>";
+            }
+        ?><br/><hr/><br>
+
+        <!-- PHP associative array -->
+        <?php
+            $ages = array("sajedur" => "26", "arif" => "28", "sazzad" => "22");
+            
+            $ages["sajedur"] = "26";
+            $ages["arif"] = "28";
+            $ages["sazzad"] = "22";
+
+            foreach($ages as $x => $age){
+                echo $x. " is " .$age. " years old". "<br/>"; 
             }
 
-            school("CMC school", "2003");
-            school("Genius school", "2005");
-            school("Govt. school", "1950");
-        ?><br/><hr/>
+        ?><br/><hr/><br>
 
+        <!-- PHP multidimensional array -->
         <?php
-            function schools($name="My school"){
-                echo "$name is good school <br/>";
+            $cars = array(
+                array("BMW", 15, 50),
+                array("Volvo", 10, 30),
+                array("Audi", 25, 40),
+                array("Toyota", 11, 35)
+            );
+
+            // echo $cars[1][2];
+
+            for ($row = 0; $row < 4; $row++){
+                echo "<p> Row number $row </p>";
+                echo "<ul>";
+                for ($col = 0; $col < 3; $col++){
+                    echo "<li> ".$cars[$row][$col]." </li>";
+                }
+                echo"</ul>";
             }
 
-            schools("CMC school");
-            schools();
-            schools("Genius school");
-            schools("Govt. school");
-        ?><br/><hr/>
-
-        <?php
-            function sum($x, $y){
-                $z = $x+$y;
-                return $z;
-            }
-
-            echo "5+10 = " . sum(5, 10);
         ?>
 
 
