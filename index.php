@@ -53,27 +53,28 @@
 
     <div class="main-content">
 
-        <h2>PHP Sorting Arrays </h2><hr/><br/>
-        <!-- Sorting Arrays -->
+        <h2>PHP Variable scope </h2><hr/><br/>
+        <!-- Variable scope - local, global -->
+        <!-- Local variable works inside a function -->
+        <!-- Global variable works from any function, just need to set global inside the function -->
         <?php
-            // $names = array("Rafi", "Sazzad", "Munshi", "Arif", "Sajedur");
-            $names = array(52, 45, 1, 10, 50);
-            sort($names);
-            $lenth = count($names);
-            for ($i = 0; $i < $lenth; $i++){
-                echo $names[$i];
-                echo ("<br/>");
-            }
-        ?><br/><hr/><br/>
 
-        <?php
-            $age = array("Rafi"=> "21", "Arif" => "28", "Sazzad" => "22", "Sajedur" => "26");
-            ksort($age);
+            $x = 15;
 
-            foreach ($age as $key => $value){
-                echo "Name = ".$key. ", age = ".$value;
-                echo "<br/>";
+            function test1(){
+                global $x;
+                $a = 5;
+                echo $a. "<br/>";
+                echo "Access from function test1 ".$x."<br/>";
             }
+
+            function test2(){
+                $b = 10;
+                echo $b. "<br/>";
+            }
+
+            test1();
+            test2();
 
         ?>
 
