@@ -53,42 +53,39 @@
 
     <div class="main-content">
 
-        <h2>PHP Loops </h2><hr/><br/>
+        <h2>PHP Functions </h2><hr/><br/>
         
-        <!-- while loop -->
         <?php
-            $x = 1;
-            while ($x <= 5){
-                echo "The number is $x <br/>";
-                $x++;
+            function school($name, $year){
+                echo "$name is established in $year <br/>";
             }
-            echo "<hr/>";
+
+            school("CMC school", "2003");
+            school("Genius school", "2005");
+            school("Govt. school", "1950");
+        ?><br/><hr/>
+
+        <?php
+            function schools($name="My school"){
+                echo "$name is good school <br/>";
+            }
+
+            schools("CMC school");
+            schools();
+            schools("Genius school");
+            schools("Govt. school");
+        ?><br/><hr/>
+
+        <?php
+            function sum($x, $y){
+                $z = $x+$y;
+                return $z;
+            }
+
+            echo "5+10 = " . sum(5, 10);
         ?>
 
-        <!-- do...while loop --><br/>
-        <?php
-            $x = 1;
-            do {
-                echo "The number is $x <br/>";
-                $x++;
-            } while ($x <= 5);
-            echo "<hr/>";
-        ?>
 
-        <!-- for loop --><br/>
-        <?php
-            for ($i = 1; $i <= 10; $i++){
-                echo "The number is $i <br/>";
-            }
-        ?>
-
-        <!-- foreach loop --><br/>
-        <?php
-            $colors = array ("blue", "green", "red", "black");
-            foreach ($colors as $x){
-                echo "$x <br/>";
-            }
-        ?>
 
 
     </div>
