@@ -53,30 +53,57 @@
 
     <div class="main-content">
 
-        <h2>PHP Variable scope </h2><hr/><br/>
-        <!-- Variable scope - local, global -->
-        <!-- Local variable works inside a function -->
-        <!-- Global variable works from any function, just need to set global inside the function -->
+        <h2>PHP Superglobals </h2><hr/><br/>
+        <!-- $GLOBALS, $_SERVER, $_REQUEST, $_POST -->
+        
+        <!-- $GLOBALS is an array that contains all global variables -->
         <?php
+            $x = 5;
+            $y = 10;
 
-            $x = 15;
-
-            function test1(){
-                global $x;
-                $a = 5;
-                echo $a. "<br/>";
-                echo "Access from function test1 ".$x."<br/>";
+            function sum(){
+                $GLOBALS["z"] = $GLOBALS["x"] + $GLOBALS["y"];
             }
 
-            function test2(){
-                $b = 10;
-                echo $b. "<br/>";
+            sum();
+            echo $z;
+        ?><br><hr><br>
+
+
+        <!-- $_SERVER holds information about headers, paths, and script locations -->
+        <?php
+            // Returns the filename of the currently executing script
+            echo $_SERVER['PHP_SELF']. "<br/>";
+            // Returns the name of the host server (such as www.w3schools.com)
+            echo $_SERVER['SERVER_NAME']. "<br/>";
+            // Returns the path of the current script
+            echo $_SERVER['SCRIPT_NAME']. "<br/>";
+            // Returns the current browser information
+            echo $_SERVER['HTTP_USER_AGENT']. "<br/>";
+            // Returns the servers ip address 
+            echo $_SERVER['SERVER_ADDR']. "<br/>";
+
+        ?><br><hr><br>
+
+
+        <!-- $_REQUEST contains submitted form data, and all cookie data, $_POST -->
+         <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+            Username: <input type="text" name="username" id="">
+            <input type="submit" value="Submit">
+         </form>
+
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                // $name = $_REQUEST['username'];
+                $name = $_POST['username'];
+                if (empty($name)){
+                    echo "<span style ='color:red'>Please fill out this field!</span>";
+                } else {
+                    echo "<span style ='color:green'>You have submitted Username: ".$name. "</span>";
+                }
             }
-
-            test1();
-            test2();
-
         ?>
+
 
 
 
