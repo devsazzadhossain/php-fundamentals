@@ -53,14 +53,64 @@
 
     <div class="main-content">
 
-        <h2>PHP Superglobals </h2><hr/><br/>
-        <!-- $_GET -->
-                
-        <a href="text.php?msg=Good&text=Coding" target="_blank">Send data</a>
+        <h2>PHP Form Validation </h2><hr/><br/>
         
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+            <table>
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Website: </td>
+                    <td><input type="text" name="website"></td>
+                </tr>
+                <tr>
+                    <td>Comment: </td>
+                    <td><textarea name="comment" id="" rows="5" cols="50"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" id="" value="Male"> Male
+                        <input type="radio" name="gender" id="" value="Female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit" name="submit"></td>
+                </tr>
+            </table>
+        </form>
+
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                $name = validate($_POST["name"]);
+                $email = validate($_POST["email"]);
+                $website = validate($_POST["website"]); 
+                $comment = validate($_POST["comment"]);
+                $gender = validate($_POST["gender"]);
+
+                echo "Name: ".$name."<br>";
+                echo "Email: ".$email."<br>";
+                echo "Website: ".$website."<br>";
+                echo "Comment: ".$comment."<br>";
+                echo "Gender: ".$gender."<br>";
+            }
+
+            function validate($data){
+                $data = trim($data); // trim() removes unwanted whitespace.
+                $data = stripslashes($data); // stripslashes() removes backslashes (\).
+                $data = htmlspecialchars($data); // htmlspecialchars() prevents XSS by converting special characters (<, >, etc.) into HTML entities.
+                return $data;
+            }
 
 
-
+        ?>
 
 
     </div>
