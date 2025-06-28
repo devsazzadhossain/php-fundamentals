@@ -1,5 +1,6 @@
 <?php 
     $fonts = "Roboto";
+    $errname = $erremail = $errwebsite = $errgender = "";
 ?> 
 
 <!DOCTYPE html>
@@ -54,20 +55,21 @@
     <div class="main-content">
 
         <h2>PHP Form Validation </h2><hr/><br/>
-        
+
+        <p style="color:red;">Required fields are marked as *</p>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
             <table>
                 <tr>
                     <td>Name: </td>
-                    <td><input type="text" name="name"></td>
+                    <td><input type="text" name="name">* <?php echo $errname;?></td>
                 </tr>
                 <tr>
                     <td>Email: </td>
-                    <td><input type="text" name="email"></td>
+                    <td><input type="text" name="email">* <?php echo $erremail;?></td>
                 </tr>
                 <tr>
                     <td>Website: </td>
-                    <td><input type="text" name="website"></td>
+                    <td><input type="text" name="website">* <?php echo $errwebsite;?></td>
                 </tr>
                 <tr>
                     <td>Comment: </td>
@@ -77,7 +79,7 @@
                     <td>Gender:</td>
                     <td>
                         <input type="radio" name="gender" id="" value="Male"> Male
-                        <input type="radio" name="gender" id="" value="Female"> Female
+                        <input type="radio" name="gender" id="" value="Female"> Female* <?php echo $errgender;?>
                     </td>
                 </tr>
                 <tr>
@@ -88,7 +90,17 @@
         </form>
 
         <?php
+
+            $name = $email = $website = $comment = $gender = "";
+           
             if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+                if (empty($_POST["name"])){
+                    $errname = "Please fill out this name field.";
+                }   else {
+                    $name = validate($_POST["name"]);
+                }
+
                 $name = validate($_POST["name"]);
                 $email = validate($_POST["email"]);
                 $website = validate($_POST["website"]); 
