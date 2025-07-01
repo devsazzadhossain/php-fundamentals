@@ -1,47 +1,5 @@
 <?php 
     $fonts = "Roboto";
-    $errname = $erremail = $errwebsite = $errgender = "";
-    $name = $email = $website = $comment = $gender = "";
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-        if (empty($_POST["name"])){
-            $errname = "<p style='color:red;'> Please fill out this name field</p>";
-        }   else {
-            $name = validate($_POST["name"]);
-        }
-
-        if (empty($_POST["email"])){
-            $erremail = "<p style='color:red;'>Please fill out this email field</p>";
-        }   elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-            $erremail = "<p style='color:red;'>Invalid email format</p>";
-        }   else {
-            $email = validate($_POST["email"]);
-        }
-
-        if (empty($_POST["website"])){
-            $errwebsite = "<p style='color:red;'>Please fill out this website field</p>";
-        }   elseif(!filter_var($_POST["website"], FILTER_VALIDATE_URL)){
-            $errwebsite = "<p style='color:red;'>Invalid URL format</p>";
-        }   else {
-            $website = validate($_POST["website"]);
-        }
-
-        if (empty($_POST["gender"])){
-            $errgender = "<p style='color:red;'>Please select a gender</p>";
-        } else {
-            $gender = validate($_POST["gender"]);
-        }
-
-
-    }
-
-    function validate($data){
-        $data = trim($data); // trim() removes unwanted whitespace.
-        $data = stripslashes($data); // stripslashes() removes backslashes (\).
-        $data = htmlspecialchars($data); // htmlspecialchars() prevents XSS by converting special characters (<, >, etc.) into HTML entities.
-        return $data;
-    }
 ?> 
 
 <!DOCTYPE html>
@@ -95,47 +53,51 @@
 
     <div class="main-content">
 
-        <h2>PHP Form URL/E-mail Validation </h2><hr/><br/>
+        <h2>PHP Date & Time </h2><hr/><br/>
 
-        <p style="color:red;">Required fields are marked as *</p>
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-            <table>
-                <tr>
-                    <td>Name: </td>
-                    <td><input type="text" name="name">* <?php echo $errname;?></td>
-                </tr>
-                <tr>
-                    <td>Email: </td>
-                    <td><input type="text" name="email">* <?php echo $erremail;?></td>
-                </tr>
-                <tr>
-                    <td>Website: </td>
-                    <td><input type="text" name="website">* <?php echo $errwebsite;?></td>
-                </tr>
-                <tr>
-                    <td>Comment: </td>
-                    <td><textarea name="comment" id="" rows="5" cols="50"></textarea></td>
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td>
-                        <input type="radio" name="gender" id="" value="Male"> Male
-                        <input type="radio" name="gender" id="" value="Female"> Female* <?php echo $errgender;?>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Submit" name="submit"></td>
-                </tr>
-            </table>
-        </form>
+        <?php
+            echo "Date: ". date("d.m.Y"), "<br>";
+            echo "Date: ". date("d/m/Y"), "<br>";
+            echo "Date: ". date("d-m-Y"), "<br>";
+            echo "Today is ". date("l"), "<br>";
+            // Default PHP Server
+            echo "Default PHP Server Time is ". date("h:i:s a"), "<br>";
 
+            // Your Default timezone
+            date_default_timezone_set('Asia/Dhaka');
+            echo "Bangladesh Time is ". date("h:i:s a"), "<br>";
+            echo date_default_timezone_get(). "<br>";
+
+            // Create a Date With mktime()
+            // creates a date and time with the date() function from a number of parameters in the mktime() function
+            // Syntax - mktime(hour, minute, second, month, day, year)
+            $d = mktime(5,16,50,7,1,2025);
+            echo "Created time is " . date("d-m-Y h:i:s a", $d) . "<br>";
+
+            // Create a Date From a String With strtotime()
+            // The example below creates a date and time from the strtotime() function
+            // Syntax - strtotime(time, now)
+            $d = strtotime("5:46pm July 2025");
+            echo "Created time is " . date("d-m-Y h:i:s a", $d) . "<br>";
+
+            // PHP is quite clever about converting a string to a date, so you can put in various values:
+            $d=strtotime("tomorrow");
+            echo date("Y-m-d h:i:sa", $d) . "<br>";
+
+            $d=strtotime("next Saturday");
+            echo date("Y-m-d h:i:sa", $d) . "<br>";
+
+            $d=strtotime("+3 Months");
+            echo date("Y-m-d h:i:sa", $d) . "<br>";
+
+        ?>
 
 
 
     </div>
 
     <footer class="footer-area">
+        <p>&copy; <?php echo date("Y");?> sazzadhossainmit</p>
         <a href="https://github.com/sazzadhossainmit"><?php echo "https://github.com/sazzadhossainmit";?></a>
     </footer>
 
