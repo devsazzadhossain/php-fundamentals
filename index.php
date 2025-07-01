@@ -1,6 +1,43 @@
 <?php 
     $fonts = "Roboto";
+    $name = $email = $website = $comment = $gender = "";
     $errname = $erremail = $errwebsite = $errgender = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+        if (empty($_POST["name"])){
+            $errname = "<p style='color:red;'> Please fill out this name field</p>";
+        }   else {
+            $name = validate($_POST["name"]);
+        }
+
+        if (empty($_POST["email"])){
+            $erremail = "<p style='color:red;'>Please fill out this email field</p>";
+        }   else {
+            $email = validate($_POST["email"]);
+        }
+
+        if (empty($_POST["website"])){
+            $errwebsite = "<p style='color:red;'>Please fill out this website field</p>";
+        }   else {
+            $website = validate($_POST["website"]);
+        }
+
+        if (empty($_POST["gender"])){
+            $errgender = "<p style='color:red;'>Please select a gender</p>";
+        } else {
+            $gender = validate($_POST["gender"]);
+        }
+
+
+    }
+
+    function validate($data){
+        $data = trim($data); // trim() removes unwanted whitespace.
+        $data = stripslashes($data); // stripslashes() removes backslashes (\).
+        $data = htmlspecialchars($data); // htmlspecialchars() prevents XSS by converting special characters (<, >, etc.) into HTML entities.
+        return $data;
+    }
 ?> 
 
 <!DOCTYPE html>
@@ -89,40 +126,7 @@
             </table>
         </form>
 
-        <?php
 
-            $name = $email = $website = $comment = $gender = "";
-           
-            if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-                if (empty($_POST["name"])){
-                    $errname = "Please fill out this name field.";
-                }   else {
-                    $name = validate($_POST["name"]);
-                }
-
-                $name = validate($_POST["name"]);
-                $email = validate($_POST["email"]);
-                $website = validate($_POST["website"]); 
-                $comment = validate($_POST["comment"]);
-                $gender = validate($_POST["gender"]);
-
-                echo "Name: ".$name."<br>";
-                echo "Email: ".$email."<br>";
-                echo "Website: ".$website."<br>";
-                echo "Comment: ".$comment."<br>";
-                echo "Gender: ".$gender."<br>";
-            }
-
-            function validate($data){
-                $data = trim($data); // trim() removes unwanted whitespace.
-                $data = stripslashes($data); // stripslashes() removes backslashes (\).
-                $data = htmlspecialchars($data); // htmlspecialchars() prevents XSS by converting special characters (<, >, etc.) into HTML entities.
-                return $data;
-            }
-
-
-        ?>
 
 
     </div>
