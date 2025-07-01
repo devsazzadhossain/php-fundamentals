@@ -1,7 +1,7 @@
 <?php 
     $fonts = "Roboto";
-    $name = $email = $website = $comment = $gender = "";
     $errname = $erremail = $errwebsite = $errgender = "";
+    $name = $email = $website = $comment = $gender = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -13,12 +13,16 @@
 
         if (empty($_POST["email"])){
             $erremail = "<p style='color:red;'>Please fill out this email field</p>";
+        }   elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+            $erremail = "<p style='color:red;'>Invalid email format</p>";
         }   else {
             $email = validate($_POST["email"]);
         }
 
         if (empty($_POST["website"])){
             $errwebsite = "<p style='color:red;'>Please fill out this website field</p>";
+        }   elseif(!filter_var($_POST["website"], FILTER_VALIDATE_URL)){
+            $errwebsite = "<p style='color:red;'>Invalid URL format</p>";
         }   else {
             $website = validate($_POST["website"]);
         }
@@ -91,7 +95,7 @@
 
     <div class="main-content">
 
-        <h2>PHP Form Validation </h2><hr/><br/>
+        <h2>PHP Form URL/E-mail Validation </h2><hr/><br/>
 
         <p style="color:red;">Required fields are marked as *</p>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
