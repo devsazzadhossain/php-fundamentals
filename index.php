@@ -54,25 +54,28 @@
 
     <div class="main-content">
 
-        <h2>PHP File create & write</h2><hr/><br/>
+        <h2>PHP File/image upload</h2><hr/><br/>
 
         <?php
 
-            $createfile = fopen("new.txt", "w") or die("Unable to create file!");
-            $one = "This is the first line\n";
-            fwrite($createfile, $one); // The fwrite() function is used to write to a file.
-            $two = "This is the second line\n";
-            fwrite($createfile, $two); 
-            fclose($createfile);
-            
+            if (isset($_FILES['image'])){
+                $filename = $_FILES['image']['name'];
+                $filetmp = $_FILES['image']['tmp_name'];
+                move_uploaded_file($filetmp, "images/". $filename);
+                echo "File uploaded successfully";
+            }            
+
         ?>
         
+        <form action="" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" id="">
+            <input type="submit" value="Submit">
+        </form>
         
 
     </div>
 
     <footer class="footer-area">
-        <p>&copy; <?php echo date("Y");?> sazzadhossainmit</p>
         <a href="https://github.com/sazzadhossainmit"><?php echo "https://github.com/sazzadhossainmit";?></a>
     </footer>
 
