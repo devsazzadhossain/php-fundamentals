@@ -53,14 +53,30 @@
 
     <div class="main-content">
 
-        <h2>PHP File handling  </h2><hr/><br/>
+        <h2>PHP File handling</h2><hr/><br/>
 
+        <!-- readfile()  -->
         <?php
-        
+            // echo readfile("test.txt"). "<br>"; 
+        ?>  
 
+        <!-- File Open/Read/Close  -->
+        <?php
+            // $myfile = fopen("test.txt", "r") or die("Unable to open file!!");
+            // echo fread($myfile, filesize("test.txt")); Reads an open file
+            // fclose($myfile); 
         ?>
 
-
+        <?php
+            $myfile = fopen("test.txt", "r") or die("Unable to open file!!");
+            while (!feof($myfile)){
+                // echo fgetc($myfile). "<br>"; // Gets the first character of a file
+                echo fgets($myfile). "<br>"; // Gets the first line of a file
+            }
+            fclose($myfile);
+        ?>
+        
+        
 
     </div>
 
