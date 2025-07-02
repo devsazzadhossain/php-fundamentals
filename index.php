@@ -47,11 +47,13 @@
 
 <div class="php-coding">
 
-    <?php require 'header.php';?>
+    <div class="header">
+        <h1><?php echo "PHP Fundamentals";?></h1>
+    </div>
 
     <div class="main-content">
 
-        <h2>PHP Include & Require </h2><hr/><br/>
+        <h2>PHP File handling  </h2><hr/><br/>
 
         <?php
         
@@ -62,7 +64,10 @@
 
     </div>
 
-    <?php include 'footer.php';?>
+    <footer class="footer-area">
+        <p>&copy; <?php echo date("Y");?> sazzadhossainmit</p>
+        <a href="https://github.com/sazzadhossainmit"><?php echo "https://github.com/sazzadhossainmit";?></a>
+    </footer>
 
 
 </div>
