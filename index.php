@@ -1,4 +1,5 @@
 <?php 
+    session_start(); // Start the session
     $fonts = "Roboto";
 ?> 
 
@@ -54,23 +55,24 @@
 
     <div class="main-content">
 
-        <h2>PHP File/image upload</h2><hr/><br/>
+        <h2>PHP session</h2><hr/><br/>
 
         <?php
 
-            if (isset($_FILES['image'])){
-                $filename = $_FILES['image']['name'];
-                $filetmp = $_FILES['image']['tmp_name'];
-                move_uploaded_file($filetmp, "images/". $filename);
-                echo "File uploaded successfully";
-            }            
+             $_SESSION['user'] = "Sazzad";
+             $_SESSION['password'] = "123";
+
+            // Echo session variables that were set on previous
+            echo "Username is: ". $_SESSION['user']. "<br/>";
+            echo "Password is: ". $_SESSION['password'];
+
+            session_unset(); // remove all session variables
+            session_destroy(); // destroy the session
+             
 
         ?>
         
-        <form action="" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image" id="">
-            <input type="submit" value="Submit">
-        </form>
+        
         
 
     </div>
