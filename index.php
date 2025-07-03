@@ -1,8 +1,4 @@
 <?php 
-    $cookie_name = "user";
-    $cookie_value = "Sazzad";
-    setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
-    // setcookie("visited", "", time() - 3600); // set the expiration date to one hour ago
     $fonts = "Roboto";
 ?> 
 
@@ -58,30 +54,63 @@
 
     <div class="main-content">
 
-        <h2>PHP Cookies</h2><hr/><br/>
+        <h2>PHP Filters</h2><hr/><br/>
 
+        <!-- The filter_list() function can be used to list what the PHP filter extension offers: -->
+        <table>
+            <tr>
+                <td>Filter Name</td>
+                <td>Filter ID</td>
+            </tr>
+            <?php
+                foreach (filter_list() as $id => $filter) {
+                    echo "<tr><td>". $filter . "</td><td>". filter_id($filter). "</td></tr>";
+                }
+            ?>
+        </table>
+
+        <!-- The filter_var() function both validate and sanitize data. -->
         <?php
-
-            // if (!isset($_COOKIE["visited"])){
-            //     setcookie("visited", "1", time()+86400, "/") or die("Could not set cookie!");
-            //     echo "You visited this site for the first time.";
-            // } else {
-            //     echo "Welcome back!";
-            // }
-
-            // echo "Cookie deleted!";
-
-            if (!isset($_COOKIE[$cookie_name])){
-                echo "Cookie named '". $cookie_name."' is not set.";
-            }   else {
-                echo "Cookie named '". $cookie_name."' is set. <br>";
-                echo "Value is: ". $_COOKIE[$cookie_name];
+            $int = 50.6;
+            if (filter_var($int, FILTER_VALIDATE_INT)){
+                echo "$int is valid Integer";
+            } else {
+                echo "$int is not valid Integer!". "<br>";
             }
-                    
         ?>
-        
-        
-        
+
+        <!-- Validate IP -->
+        <?php
+            $ip = "127.0.0.1";
+            if (filter_var($ip, FILTER_VALIDATE_IP)){
+                echo "$ip is valid IP.";
+            } else {
+                echo "$ip is not valid IP!" . "<br>";
+            }
+        ?><br>
+
+        <!-- Validate Email -->
+        <?php
+            $email = "sazzadhossainmitgmail.com";
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+                echo "$email is valid email.";
+            } else {
+                echo "$email is not valid email!". "<br>";
+            }
+        ?>
+
+        <!-- Validate URL -->
+        <?php
+            // Remove all illegal characters from email (SANITIZE)
+            // $url = filter_var($url, FILTER_SANITIZE_EMAIL);
+
+            $url = "https://github.com/sazzadhossainmit";
+            if (filter_var($url, FILTER_SANITIZE_URL)){
+                echo "$url is valid URL address.";
+            } else {
+                echo "$url is not valid URL address!". "<br>";
+            }
+        ?>
 
     </div>
 
