@@ -1,5 +1,8 @@
 <?php 
-    session_start(); // Start the session
+    $cookie_name = "user";
+    $cookie_value = "Sazzad";
+    setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
+    // setcookie("visited", "", time() - 3600); // set the expiration date to one hour ago
     $fonts = "Roboto";
 ?> 
 
@@ -55,21 +58,26 @@
 
     <div class="main-content">
 
-        <h2>PHP session</h2><hr/><br/>
+        <h2>PHP Cookies</h2><hr/><br/>
 
         <?php
 
-             $_SESSION['user'] = "Sazzad";
-             $_SESSION['password'] = "123";
+            // if (!isset($_COOKIE["visited"])){
+            //     setcookie("visited", "1", time()+86400, "/") or die("Could not set cookie!");
+            //     echo "You visited this site for the first time.";
+            // } else {
+            //     echo "Welcome back!";
+            // }
 
-            // Echo session variables that were set on previous
-            echo "Username is: ". $_SESSION['user']. "<br/>";
-            echo "Password is: ". $_SESSION['password'];
+            // echo "Cookie deleted!";
 
-            session_unset(); // remove all session variables
-            session_destroy(); // destroy the session
-             
-
+            if (!isset($_COOKIE[$cookie_name])){
+                echo "Cookie named '". $cookie_name."' is not set.";
+            }   else {
+                echo "Cookie named '". $cookie_name."' is set. <br>";
+                echo "Value is: ". $_COOKIE[$cookie_name];
+            }
+                    
         ?>
         
         
