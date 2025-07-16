@@ -43,6 +43,9 @@
         min-height: 300px;
         padding: 30px;
     }
+    input[type="text"] {
+        width: 250px;
+    }
 
 </style>
 
@@ -54,17 +57,23 @@
 
     <div class="main-content">
 
-        <h2>PHP Explode & Implode Function</h2><hr/><br/>
+        <h2>PHP Change case</h2><hr/><br/>
         
         <?php
-            $str = "Learning PHP Fundamentals";
-            $mystr = explode(" ", $str);
-            echo $mystr[0];
-        ?><br>
-        <?php
-            $newstr = array("Using", "implode", "function");
-            echo implode(" ", $newstr);
+            global $txt;
+            if (isset($_POST['text'])){
+                $txt = $_POST['text'];
+                // echo ucwords($txt); Capitalize every words
+                // echo ucfirst($txt); Capitalize first word
+                // echo strtoupper($txt); Capitalize
+                echo strtolower($txt); // lowercase
+            }
         ?>
+
+        <form action="index.php" method="post">
+            <input type="text" name="text" value="<?php global $txt; echo $txt;?>">
+            <input type="submit" value="Submit">
+        </form>
 
     </div>
 
