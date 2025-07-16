@@ -54,28 +54,17 @@
 
     <div class="main-content">
 
-        <h2>PHP Filters Advanced</h2><hr/><br/>
+        <h2>PHP Error Reporting</h2><hr/><br/>
 
         <?php
-            $intnum = 199;
-            $min = 1;
-            $max = 200;
-
-            if (filter_var($intnum, FILTER_VALIDATE_INT, array("options" => array("min_range" => $min, "max_range" => $max)))){
-                echo "$intnum is a Valid integer";
-            }   else {
-                echo "$intnum is an Invalid integer detected! Please type within the range.";
-            }
-        ?><br>
-
-        <?php
-            $url = "https://example.com/index.html?q=123";
-            if (filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED)){
-                echo "$url is a Valid query url";
+            error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+            $price = 45;
+            if ($rice == 45){
+                print "Price is $price";
             } else {
-                echo "$url is an Invalid query url, no query string found.";
+                print "Incorrect price";
             }
-        ?>
+        ?> 
         
 
     </div>
