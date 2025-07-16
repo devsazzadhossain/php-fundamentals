@@ -54,18 +54,26 @@
 
     <div class="main-content">
 
-        <h2>PHP Error Reporting</h2><hr/><br/>
-
-        <?php
-            error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-            $price = 45;
-            if ($rice == 45){
-                print "Price is $price";
-            } else {
-                print "Incorrect price";
-            }
-        ?> 
+        <h2>PHP error handling with exception</h2><hr/><br/>
         
+        <?php
+            function numCheck ($num){
+                if ($num != 5){
+                    throw new Exception("value is not 5");
+                }
+                return true;
+            }
+            try {
+                numCheck(5);
+                echo "value is 5";
+            }
+            catch (Exception $e) {
+                echo "Message: ". $e->getMessage();
+            }
+            finally {
+                echo " Process complete";
+            }
+        ?>
 
     </div>
 
