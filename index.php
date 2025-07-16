@@ -54,25 +54,16 @@
 
     <div class="main-content">
 
-        <h2>PHP error handling with exception</h2><hr/><br/>
+        <h2>PHP Explode & Implode Function</h2><hr/><br/>
         
         <?php
-            function numCheck ($num){
-                if ($num != 5){
-                    throw new Exception("value is not 5");
-                }
-                return true;
-            }
-            try {
-                numCheck(5);
-                echo "value is 5";
-            }
-            catch (Exception $e) {
-                echo "Message: ". $e->getMessage();
-            }
-            finally {
-                echo " Process complete";
-            }
+            $str = "Learning PHP Fundamentals";
+            $mystr = explode(" ", $str);
+            echo $mystr[0];
+        ?><br>
+        <?php
+            $newstr = array("Using", "implode", "function");
+            echo implode(" ", $newstr);
         ?>
 
     </div>
