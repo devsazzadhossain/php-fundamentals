@@ -57,14 +57,32 @@
 
     <div class="main-content">
 
-        <h2>PHP array_count_values()</h2><hr/><br/>
-        
+        <h2>PHP array_diff()</h2><hr/><br/>
         <?php
-            $name = array ("Sazzad", "Arif", "Rafi", "Sazzad", "Arif", "Rafi", "Arif", "Rafi", "Rafi");
-            $department = array ("12", "24", "100", "24", "100", "100", "100");
+            
+            $array_one = array (
+                "a" => "white",
+                "b" => "red",
+                "c" => "black",
+                "d" => "yellow"
+            );
+            $array_two = array (
+                "e" => "white",
+                "f" => "purple",
+                "g" => "grey",
+                "h" => "yellow"
+            );
+            $array_three = array (
+                "c" => "orange",
+                "l" => "green",
+                "d" => "pink",
+                "r" => "blue"
+            );
+
+            $difference = array_diff($array_one, $array_two, $array_three);
 
             print "<pre>";
-            print_r(array_count_values($name));
+            print_r($difference);
             print "</pre>";
         ?>
 
