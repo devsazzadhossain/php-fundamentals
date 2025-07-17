@@ -57,20 +57,12 @@
 
     <div class="main-content">
 
-        <h2>PHP Strip whiltespace/Characters</h2><hr/><br/>
+        <h2>PHP require/require_once</h2><hr/><br/>
         
         <?php
-            global $txt;
-            if (isset($_POST['text'])){
-                $txt = $_POST['text'];
-                echo trim($txt, " ."); 
-            }
+            require "new.php";
+            require_once "new.php";
         ?>
-
-        <form action="index.php" method="post">
-            <input type="text" name="text" value="<?php global $txt; echo $txt;?>">
-            <input type="submit" value="Submit">
-        </form>
 
     </div>
 
