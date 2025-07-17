@@ -57,11 +57,34 @@
 
     <div class="main-content">
 
-        <h2>PHP require/require_once</h2><hr/><br/>
+        <h2>PHP Array (create an array)</h2><hr/><br/>
         
         <?php
-            require "new.php";
-            require_once "new.php";
+            $car = array("Volvo", "BMW", "Audi", "Porshe"); // Indexed array
+            $lenth = count($car);
+            for ($i=0; $i<$lenth; $i++){
+                echo $car[$i]. "<br>";
+            }
+        ?><hr>
+        <?php
+            $age = array(   // Associative array
+                "Sazzad" => 22,
+                "Sajedur" => 26,
+                "Arif" => 28,
+                "Rafi" => 20,
+                "Raihan" => 19
+            );
+            foreach ($age as $key=>$value){
+                echo "Name: ".$key. " || Age: ".$value. "<br>";
+            }
+        ?><hr>
+        <?php
+            $car_specs = array (    // Multidimensional array
+                array ("Asia", "India", "Cricket"),
+                array ("Asia", "Bangladesh", "Football"),
+                array ("Asia", "Maldives", "Island")
+            );
+            echo $car_specs [2][2];
         ?>
 
     </div>
