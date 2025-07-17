@@ -57,34 +57,20 @@
 
     <div class="main-content">
 
-        <h2>PHP Array (create an array)</h2><hr/><br/>
+        <h2>PHP array_change_key_case</h2><hr/><br/>
         
         <?php
-            $car = array("Volvo", "BMW", "Audi", "Porshe"); // Indexed array
-            $lenth = count($car);
-            for ($i=0; $i<$lenth; $i++){
-                echo $car[$i]. "<br>";
-            }
-        ?><hr>
-        <?php
-            $age = array(   // Associative array
+            $age = array(
                 "Sazzad" => 22,
                 "Sajedur" => 26,
                 "Arif" => 28,
                 "Rafi" => 20,
                 "Raihan" => 19
             );
-            foreach ($age as $key=>$value){
-                echo "Name: ".$key. " || Age: ".$value. "<br>";
-            }
-        ?><hr>
-        <?php
-            $car_specs = array (    // Multidimensional array
-                array ("Asia", "India", "Cricket"),
-                array ("Asia", "Bangladesh", "Football"),
-                array ("Asia", "Maldives", "Island")
-            );
-            echo $car_specs [2][2];
+            print("<pre>");
+            // print_r(array_change_key_case($age, CASE_LOWER));   // lowercase
+            print_r(array_change_key_case($age, CASE_UPPER));   // uppercase
+            print("</pre>");
         ?>
 
     </div>
