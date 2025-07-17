@@ -57,16 +57,13 @@
 
     <div class="main-content">
 
-        <h2>PHP Change case</h2><hr/><br/>
+        <h2>PHP Strip whiltespace/Characters</h2><hr/><br/>
         
         <?php
             global $txt;
             if (isset($_POST['text'])){
                 $txt = $_POST['text'];
-                // echo ucwords($txt); Capitalize every words
-                // echo ucfirst($txt); Capitalize first word
-                // echo strtoupper($txt); Capitalize
-                echo strtolower($txt); // lowercase
+                echo trim($txt, " ."); 
             }
         ?>
 
