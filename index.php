@@ -57,20 +57,31 @@
 
     <div class="main-content">
 
-        <h2>PHP array_change_key_case</h2><hr/><br/>
+        <h2>PHP array_column</h2><hr/><br/>
         
         <?php
-            $age = array(
-                "Sazzad" => 22,
-                "Sajedur" => 26,
-                "Arif" => 28,
-                "Rafi" => 20,
-                "Raihan" => 19
+            $name = array(
+                array(
+                    "id" => "101",
+                    "first_name" => "Sazzad",
+                    "last_name" => "Hossain"
+                ),
+                array(
+                    "id" => "102",
+                    "first_name" => "Arif",
+                    "last_name" => "Islam"
+                ),
+                array(
+                    "id" => "103",
+                    "first_name" => "Kibrea",
+                    "last_name" => "Rafi"
+                )
             );
-            print("<pre>");
-            // print_r(array_change_key_case($age, CASE_LOWER));   // lowercase
-            print_r(array_change_key_case($age, CASE_UPPER));   // uppercase
-            print("</pre>");
+
+            $first_name = array_column($name, "first_name", "id");
+            print "<pre>";
+            print_r($first_name);
+            print "</pre>";
         ?>
 
     </div>
