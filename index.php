@@ -57,16 +57,14 @@
 
     <div class="main-content">
 
-        <h2>PHP array_combine()</h2><hr/><br/>
+        <h2>PHP array_count_values()</h2><hr/><br/>
         
         <?php
-            $name = array ("Sazzad", "Arif", "Rafi");
-            $department = array ("Management", "English", "Political Science");
-
-            $combine = array_combine($name, $department);
+            $name = array ("Sazzad", "Arif", "Rafi", "Sazzad", "Arif", "Rafi", "Arif", "Rafi", "Rafi");
+            $department = array ("12", "24", "100", "24", "100", "100", "100");
 
             print "<pre>";
-            print_r($combine);
+            print_r(array_count_values($name));
             print "</pre>";
         ?>
 
