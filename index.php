@@ -57,30 +57,16 @@
 
     <div class="main-content">
 
-        <h2>PHP array_column</h2><hr/><br/>
+        <h2>PHP array_combine()</h2><hr/><br/>
         
         <?php
-            $name = array(
-                array(
-                    "id" => "101",
-                    "first_name" => "Sazzad",
-                    "last_name" => "Hossain"
-                ),
-                array(
-                    "id" => "102",
-                    "first_name" => "Arif",
-                    "last_name" => "Islam"
-                ),
-                array(
-                    "id" => "103",
-                    "first_name" => "Kibrea",
-                    "last_name" => "Rafi"
-                )
-            );
+            $name = array ("Sazzad", "Arif", "Rafi");
+            $department = array ("Management", "English", "Political Science");
 
-            $first_name = array_column($name, "first_name", "id");
+            $combine = array_combine($name, $department);
+
             print "<pre>";
-            print_r($first_name);
+            print_r($combine);
             print "</pre>";
         ?>
 
