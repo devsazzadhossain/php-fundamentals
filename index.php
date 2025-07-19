@@ -57,27 +57,26 @@
 
     <div class="main-content">
 
-        <h2>PHP array_intersect_key()</h2><hr/><br/>
+        <h2>PHP array_key_exists()</h2><hr/><br/>
         <?php
-            
-            $array_one = array (
-                "a" => "white",
-                "b" => "red",
-                "c" => "black",
-                "d" => "yellow"
+            $demo = array (
+                "name" => "Sazzad",
+                "age" => "22",
+                "gender" => "male"
             );
-            $array_two = array (
-                "a" => "white",
-                "f" => "red",
-                "b" => "grey",
-                "d" => "yellow"
-            );
-
-            $similar = array_intersect_key($array_one, $array_two);
-
-            print "<pre>";
-            print_r($similar);
-            print "</pre>";
+            if (array_key_exists("age", $demo)){
+                echo "array key exists.";
+            }   else {
+                echo "array key does not exists.";
+            }
+        ?><br>
+        <?php
+            $demo = array ("Sazzad", "Raihan", "Carl");
+            if (array_key_exists(3, $demo)){
+                echo "array index key exists.";
+            }   else {
+                echo "array index key does not exists.";
+            }
         ?>
 
     </div>
