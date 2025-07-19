@@ -57,7 +57,7 @@
 
     <div class="main-content">
 
-        <h2>PHP array_diff_key()</h2><hr/><br/>
+        <h2>PHP array_intersect()</h2><hr/><br/>
         <?php
             
             $array_one = array (
@@ -68,21 +68,21 @@
             );
             $array_two = array (
                 "a" => "white",
-                "f" => "purple",
+                "f" => "red",
                 "g" => "grey",
                 "h" => "yellow"
             );
             $array_three = array (
                 "a" => "white",
-                "l" => "green",
-                "d" => "pink",
-                "r" => "blue"
+                "f" => "red",
+                "g" => "grey",
+                "h" => "yellow"
             );
 
-            $difference = array_diff_key($array_one, $array_two, $array_three);
+            $similar = array_intersect($array_one, $array_two, $array_three);
 
             print "<pre>";
-            print_r($difference);
+            print_r($similar);
             print "</pre>";
         ?>
 
