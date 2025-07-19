@@ -57,7 +57,7 @@
 
     <div class="main-content">
 
-        <h2>PHP array_intersect()</h2><hr/><br/>
+        <h2>PHP array_intersect_assoc()</h2><hr/><br/>
         <?php
             
             $array_one = array (
@@ -79,7 +79,7 @@
                 "h" => "yellow"
             );
 
-            $similar = array_intersect($array_one, $array_two, $array_three);
+            $similar = array_intersect_assoc($array_one, $array_two, $array_three);
 
             print "<pre>";
             print_r($similar);
