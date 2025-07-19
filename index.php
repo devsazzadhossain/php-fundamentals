@@ -57,7 +57,7 @@
 
     <div class="main-content">
 
-        <h2>PHP array_diff_assoc()</h2><hr/><br/>
+        <h2>PHP array_diff_key()</h2><hr/><br/>
         <?php
             
             $array_one = array (
@@ -79,7 +79,7 @@
                 "r" => "blue"
             );
 
-            $difference = array_diff_assoc($array_one, $array_two, $array_three);
+            $difference = array_diff_key($array_one, $array_two, $array_three);
 
             print "<pre>";
             print_r($difference);
