@@ -57,26 +57,20 @@
 
     <div class="main-content">
 
-        <h2>PHP array_key_exists()</h2><hr/><br/>
+        <h2>PHP array_keys()</h2><hr/><br/>
         <?php
-            $demo = array (
-                "name" => "Sazzad",
-                "age" => "22",
-                "gender" => "male"
+            $cars = array(
+                "BMW" => "xc41",
+                "Tesla" => "model1",
+                "Farrari" => "kl50"
             );
-            if (array_key_exists("age", $demo)){
-                echo "array key exists.";
-            }   else {
-                echo "array key does not exists.";
-            }
-        ?><br>
-        <?php
-            $demo = array ("Sazzad", "Raihan", "Carl");
-            if (array_key_exists(3, $demo)){
-                echo "array index key exists.";
-            }   else {
-                echo "array index key does not exists.";
-            }
+
+            // $keys = array_keys($cars, "model1");  // Prints the key according to a value
+            $keys = array_keys($cars);  // Prints all keys
+
+            echo "<pre>";
+            print_r($keys);
+            echo "</pre>";
         ?>
 
     </div>
