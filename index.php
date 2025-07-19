@@ -57,7 +57,7 @@
 
     <div class="main-content">
 
-        <h2>PHP array_diff()</h2><hr/><br/>
+        <h2>PHP array_diff_assoc()</h2><hr/><br/>
         <?php
             
             $array_one = array (
@@ -67,19 +67,19 @@
                 "d" => "yellow"
             );
             $array_two = array (
-                "e" => "white",
+                "a" => "white",
                 "f" => "purple",
                 "g" => "grey",
                 "h" => "yellow"
             );
             $array_three = array (
-                "c" => "orange",
+                "a" => "white",
                 "l" => "green",
                 "d" => "pink",
                 "r" => "blue"
             );
 
-            $difference = array_diff($array_one, $array_two, $array_three);
+            $difference = array_diff_assoc($array_one, $array_two, $array_three);
 
             print "<pre>";
             print_r($difference);
