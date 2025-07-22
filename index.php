@@ -57,20 +57,53 @@
 
     <div class="main-content">
 
-        <h2>PHP array_keys()</h2><hr/><br/>
+        <h2>PHP array_map()</h2><br><hr/><br/>
         <?php
-            $cars = array(
-                "BMW" => "xc41",
-                "Tesla" => "model1",
-                "Farrari" => "kl50"
-            );
+            function myfunction($values){   // example 1
+                return($values+$values); 
+            }
 
-            // $keys = array_keys($cars, "model1");  // Prints the key according to a value
-            $keys = array_keys($cars);  // Prints all keys
+            $numbers = array(1,2,3,4,5);
+
+            $result = array_map("myfunction", $numbers);
 
             echo "<pre>";
-            print_r($keys);
+            print_r($result);
             echo "</pre>";
+        ?><br><hr><br>
+
+        <?php
+            function uppercase($capital){   // example 2
+                $c = strtoupper($capital);
+                return $c;
+            }
+
+            $assoc = array(
+                "Name" => "Sazzad Hossain",
+                "Nationality" => "Bangladeshi",
+                "Blood Group" => "b+"
+            );
+
+            print "<pre>";
+            print_r(array_map("uppercase", $assoc));
+            print "</pre>";
+        ?><br><hr><br>
+
+        <?php
+            function many_arrays($m1,$m2){  // example 3
+                if ($m1===$m2){
+                    return "same";
+                } else {
+                    return "different";
+                }
+            }
+            
+            $a1 = array("horse", "dog", "rat");
+            $a2 = array("cat", "dog", "cow");
+
+            print "<pre>";
+            print_r(array_map("many_arrays", $a1,$a2));
+            print "</pre>";
         ?>
 
     </div>
