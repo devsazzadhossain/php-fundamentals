@@ -57,36 +57,34 @@
 
     <div class="main-content">
 
-        <h2>PHP array_merge()</h2><br><hr/><br/>
+        <h2>PHP array_multisort()</h2><br><hr/><br/>
         <?php
-            $one = array("Red", "Green", "Blue");       // example 1
-            $two = array("Black", "White", "Gray");
+            $arr_one = array("Helicopter", "Mobile Phone", "Computer");     // example 1
+            $arr_two = array("Zoo", "Bull", "Lime");
+
+            array_multisort($arr_one,SORT_ASC,$arr_two,SORT_DESC);
 
             print "<pre>";
-            print_r(array_merge($one, $two));
+            print_r($arr_one);
+            print "</pre>";
+
+            print "<pre>";
+            print_r($arr_two);
             print "</pre>";
         ?><br><hr/><br/>
 
         <?php
-            $array_one = array(     // example 2
-                "a" => "Apple",
-                "b" => "Bat",
-                "c" => "Cat"
-            );
-            $array_two = array(
-                "c" => "Override Cat",
-                "d" => "Desk",
-                "e" => "Element"
-            );
-            $array_three = array(
-                4 => "one",
-                2 => "two",
-                3 => "three"
-            );
+            $num_one = array(40,50,20,10);      // example 2 - Merge two arrays and sort them as numbers, in ascending order:
+            $num_two = array(30,100,60,90,);
+
+            $number = array_merge($num_one, $num_two);
+
+            array_multisort($number,SORT_ASC, SORT_NUMERIC);
 
             print "<pre>";
-            print_r(array_merge($array_one, $array_two, $array_three));
+            print_r($number);
             print "</pre>";
+
         ?>
 
     </div>
