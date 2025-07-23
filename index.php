@@ -57,14 +57,13 @@
 
     <div class="main-content">
 
-        <h2>PHP array_pad()</h2><br><hr/><br/>
+        <h2>PHP array_pop()</h2><br><hr/><br/>
         <?php
-            $colors = array("Red", "Green", "blue");
-
-            $result = array_pad($colors, 7, "White");
+            $colors = array("one", "two", "three", "four");
+            array_pop($colors);
 
             print "<pre>";
-            print_r($result);
+            print_r($colors);
             print "</pre>";
 
         ?>
