@@ -57,22 +57,24 @@
 
     <div class="main-content">
 
-        <h2>PHP array_search()</h2><br><hr/><br/>
+        <h2>PHP array_shift()</h2><br><hr/><br/>
         <?php
-            $color = array("a"=>"White", "b"=>"Black", "c"=>"Green", "d"=>"Blue");
+            $color = array(
+                "a"=>"White",
+                "b"=>"Black",
+                "c"=>"Green",
+                "d"=>"Blue",
+                3 => "Gray",    // numeric
+                4 => "Pink",
+                5 => "Yellow"
+            );
 
-            if(isset($_POST['text'])){
-                global $txt;
-                $txt = $_POST['text'];
-                $result = array_search($txt, $color);
-                echo "You have searched <b>$txt</b> and you matched key is <b>$result</b>";
-            }
+            array_shift($color);
+
+            print "<pre>";
+            print_r($color);
+            print "</pre>";
         ?>
-
-        <form action="index.php" method="post">
-            <input type="text" name="text" value="<?php global $txt; echo $txt;?>">
-            <input type="submit" value="Search">
-        </form>
 
     </div>
 
