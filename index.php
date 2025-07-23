@@ -57,15 +57,10 @@
 
     <div class="main-content">
 
-        <h2>PHP array_push()</h2><br><hr/><br/>
+        <h2>PHP array_product()</h2><br><hr/><br/>
         <?php
-            $colors = array("one", "two", "three", "four");
-            array_push($colors, "five - pushed", "six - pushed");
-
-            print "<pre>";
-            print_r($colors);
-            print "</pre>";
-
+            $numbers = array(2,3,4,5);
+            echo (array_product($numbers));
         ?>
 
     </div>
