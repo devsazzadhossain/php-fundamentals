@@ -57,32 +57,14 @@
 
     <div class="main-content">
 
-        <h2>PHP array_multisort()</h2><br><hr/><br/>
+        <h2>PHP array_pad()</h2><br><hr/><br/>
         <?php
-            $arr_one = array("Helicopter", "Mobile Phone", "Computer");     // example 1
-            $arr_two = array("Zoo", "Bull", "Lime");
+            $colors = array("Red", "Green", "blue");
 
-            array_multisort($arr_one,SORT_ASC,$arr_two,SORT_DESC);
-
-            print "<pre>";
-            print_r($arr_one);
-            print "</pre>";
+            $result = array_pad($colors, 7, "White");
 
             print "<pre>";
-            print_r($arr_two);
-            print "</pre>";
-        ?><br><hr/><br/>
-
-        <?php
-            $num_one = array(40,50,20,10);      // example 2 - Merge two arrays and sort them as numbers, in ascending order:
-            $num_two = array(30,100,60,90,);
-
-            $number = array_merge($num_one, $num_two);
-
-            array_multisort($number,SORT_ASC, SORT_NUMERIC);
-
-            print "<pre>";
-            print_r($number);
+            print_r($result);
             print "</pre>";
 
         ?>
