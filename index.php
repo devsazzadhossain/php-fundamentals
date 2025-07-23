@@ -57,52 +57,35 @@
 
     <div class="main-content">
 
-        <h2>PHP array_map()</h2><br><hr/><br/>
+        <h2>PHP array_merge()</h2><br><hr/><br/>
         <?php
-            function myfunction($values){   // example 1
-                return($values+$values); 
-            }
+            $one = array("Red", "Green", "Blue");       // example 1
+            $two = array("Black", "White", "Gray");
 
-            $numbers = array(1,2,3,4,5);
-
-            $result = array_map("myfunction", $numbers);
-
-            echo "<pre>";
-            print_r($result);
-            echo "</pre>";
-        ?><br><hr><br>
+            print "<pre>";
+            print_r(array_merge($one, $two));
+            print "</pre>";
+        ?><br><hr/><br/>
 
         <?php
-            function uppercase($capital){   // example 2
-                $c = strtoupper($capital);
-                return $c;
-            }
-
-            $assoc = array(
-                "Name" => "Sazzad Hossain",
-                "Nationality" => "Bangladeshi",
-                "Blood Group" => "b+"
+            $array_one = array(     // example 2
+                "a" => "Apple",
+                "b" => "Bat",
+                "c" => "Cat"
+            );
+            $array_two = array(
+                "c" => "Override Cat",
+                "d" => "Desk",
+                "e" => "Element"
+            );
+            $array_three = array(
+                4 => "one",
+                2 => "two",
+                3 => "three"
             );
 
             print "<pre>";
-            print_r(array_map("uppercase", $assoc));
-            print "</pre>";
-        ?><br><hr><br>
-
-        <?php
-            function many_arrays($m1,$m2){  // example 3
-                if ($m1===$m2){
-                    return "same";
-                } else {
-                    return "different";
-                }
-            }
-            
-            $a1 = array("horse", "dog", "rat");
-            $a2 = array("cat", "dog", "cow");
-
-            print "<pre>";
-            print_r(array_map("many_arrays", $a1,$a2));
+            print_r(array_merge($array_one, $array_two, $array_three));
             print "</pre>";
         ?>
 
