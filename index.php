@@ -57,10 +57,26 @@
 
     <div class="main-content">
 
-        <h2>PHP array_product()</h2><br><hr/><br/>
+        <h2>PHP array_replace()</h2><br><hr/><br/>
         <?php
-            $numbers = array(2,3,4,5);
-            echo (array_product($numbers));
+            // Indexed array
+            // $one = array("Computer one", "Laptop one");
+            // $two = array("Computer two", "Laptop two");
+
+            // associated array
+            $one = array(
+                "a" => "Apple",
+                "b" => "Bat"
+            );
+            $two = array(
+                "c" => "Cat",
+                "b" => "Ball - replaced",
+                "Computer"
+            );
+
+            print "<pre>";
+            print_r(array_replace($one,$two));
+            print "</pre>";
         ?>
 
     </div>
