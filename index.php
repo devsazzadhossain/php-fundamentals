@@ -57,21 +57,22 @@
 
     <div class="main-content">
 
-        <h2>PHP array_reverse()</h2><br><hr/><br/>
+        <h2>PHP array_search()</h2><br><hr/><br/>
         <?php
-            $one = array("one", "two", "three", "four", "five");
+            $color = array("a"=>"White", "b"=>"Black", "c"=>"Green", "d"=>"Blue");
 
-            print "<pre>";
-            print_r(array_reverse($one));
-            print "</pre>";
-        ?><br><hr/><br/>
-        <?php
-            $two = array("a"=>"one", "b"=>"two", "c"=>"three", "four", "e"=>"five");
-
-            print "<pre>";
-            print_r(array_reverse($two));
-            print "</pre>";
+            if(isset($_POST['text'])){
+                global $txt;
+                $txt = $_POST['text'];
+                $result = array_search($txt, $color);
+                echo "You have searched <b>$txt</b> and you matched key is <b>$result</b>";
+            }
         ?>
+
+        <form action="index.php" method="post">
+            <input type="text" name="text" value="<?php global $txt; echo $txt;?>">
+            <input type="submit" value="Search">
+        </form>
 
     </div>
 
