@@ -57,25 +57,19 @@
 
     <div class="main-content">
 
-        <h2>PHP array_replace()</h2><br><hr/><br/>
+        <h2>PHP array_reverse()</h2><br><hr/><br/>
         <?php
-            // Indexed array
-            // $one = array("Computer one", "Laptop one");
-            // $two = array("Computer two", "Laptop two");
-
-            // associated array
-            $one = array(
-                "a" => "Apple",
-                "b" => "Bat"
-            );
-            $two = array(
-                "c" => "Cat",
-                "b" => "Ball - replaced",
-                "Computer"
-            );
+            $one = array("one", "two", "three", "four", "five");
 
             print "<pre>";
-            print_r(array_replace($one,$two));
+            print_r(array_reverse($one));
+            print "</pre>";
+        ?><br><hr/><br/>
+        <?php
+            $two = array("a"=>"one", "b"=>"two", "c"=>"three", "four", "e"=>"five");
+
+            print "<pre>";
+            print_r(array_reverse($two));
             print "</pre>";
         ?>
 
