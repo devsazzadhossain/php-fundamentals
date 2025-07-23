@@ -57,10 +57,10 @@
 
     <div class="main-content">
 
-        <h2>PHP array_pop()</h2><br><hr/><br/>
+        <h2>PHP array_push()</h2><br><hr/><br/>
         <?php
             $colors = array("one", "two", "three", "four");
-            array_pop($colors);
+            array_push($colors, "five - pushed", "six - pushed");
 
             print "<pre>";
             print_r($colors);
