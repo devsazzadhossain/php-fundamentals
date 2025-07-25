@@ -57,7 +57,7 @@
 
     <div class="main-content">
 
-        <h2>PHP array_unique()</h2><br><hr/><br/>
+        <h2>PHP array_unshift()</h2><br><hr/><br/>
 
         <?php
             $color = array(
@@ -68,6 +68,12 @@
                 "e" => "yellow",
                 "f" => "white",
             );
+
+            print "<pre>";
+            print_r(array_unique($color));
+            print "</pre>";
+
+            array_unshift($color, "new red");
             
             print "<pre>";
             print_r(array_unique($color));
