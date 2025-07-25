@@ -57,14 +57,24 @@
 
     <div class="main-content">
 
-        <h2>PHP array_slice()</h2><br><hr/><br/>
+        <h2>PHP array_sum()</h2><br><hr/><br/>
         <?php
-            $color = array("White","Black","Green","Blue","Gray","Pink","Yellow");
+            $number = array(10,20,30,40);
+            $result = array_sum($number);
+            echo "Total: " .$result;
+        ?><br><hr/><br/>
 
-            print "<pre>";
-            print_r(array_slice($color,3,2));
-            print "</pre>";
+        <?php
+            $num = array(
+                "a" => "40",
+                "b" => "50",
+                "c" => "60"
+            );
+            $total = array_sum($num);
+            echo "Total: ".$total;
         ?>
+
+
 
     </div>
 
