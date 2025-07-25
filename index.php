@@ -57,22 +57,12 @@
 
     <div class="main-content">
 
-        <h2>PHP array_shift()</h2><br><hr/><br/>
+        <h2>PHP array_slice()</h2><br><hr/><br/>
         <?php
-            $color = array(
-                "a"=>"White",
-                "b"=>"Black",
-                "c"=>"Green",
-                "d"=>"Blue",
-                3 => "Gray",    // numeric
-                4 => "Pink",
-                5 => "Yellow"
-            );
-
-            array_shift($color);
+            $color = array("White","Black","Green","Blue","Gray","Pink","Yellow");
 
             print "<pre>";
-            print_r($color);
+            print_r(array_slice($color,3,2));
             print "</pre>";
         ?>
 
