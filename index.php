@@ -57,7 +57,7 @@
 
     <div class="main-content">
 
-        <h2>PHP array_unshift()</h2><br><hr/><br/>
+        <h2>PHP array_values()</h2><br><hr/><br/>
 
         <?php
             $color = array(
@@ -66,17 +66,11 @@
                 "c" => "pink",
                 "d" => "red",
                 "e" => "yellow",
-                "f" => "white",
+                "f" => "white"
             );
 
             print "<pre>";
-            print_r(array_unique($color));
-            print "</pre>";
-
-            array_unshift($color, "new red");
-            
-            print "<pre>";
-            print_r(array_unique($color));
+            print_r(array_values($color));
             print "</pre>";
         ?>
 
