@@ -57,21 +57,21 @@
 
     <div class="main-content">
 
-        <h2>PHP array_sum()</h2><br><hr/><br/>
-        <?php
-            $number = array(10,20,30,40);
-            $result = array_sum($number);
-            echo "Total: " .$result;
-        ?><br><hr/><br/>
+        <h2>PHP array_unique()</h2><br><hr/><br/>
 
         <?php
-            $num = array(
-                "a" => "40",
-                "b" => "50",
-                "c" => "60"
+            $color = array(
+                "a" => "red",
+                "b" => "yellow",
+                "c" => "pink",
+                "d" => "red",
+                "e" => "yellow",
+                "f" => "white",
             );
-            $total = array_sum($num);
-            echo "Total: ".$total;
+            
+            print "<pre>";
+            print_r(array_unique($color));
+            print "</pre>";
         ?>
 
 
