@@ -57,21 +57,20 @@
 
     <div class="main-content">
 
-        <h2>PHP array_values()</h2><br><hr/><br/>
+        <h2>PHP array_walk()</h2><br><hr/><br/>
 
         <?php
-            $color = array(
-                "a" => "red",
-                "b" => "yellow",
-                "c" => "pink",
-                "d" => "red",
-                "e" => "yellow",
-                "f" => "white"
+            $sections = array(
+                "Rafi" => "Political Science",
+                "Sajedur" => "English",
+                "Sazzad" => "Management"
             );
 
-            print "<pre>";
-            print_r(array_values($color));
-            print "</pre>";
+            function myfunction($department, $name){
+                echo "$name is from ".$department." department.<br>";
+            }
+
+            array_walk($sections, "myfunction");
         ?>
 
 
