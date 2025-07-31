@@ -57,17 +57,20 @@
 
     <div class="main-content">
 
-        <h2>PHP compact()</h2><br><hr/><br/>
+        <h2>PHP extract()</h2><br><hr/><br/>
 
         <?php
-            $name = "Sazzad";
-            $age = 22;
-            $gender = "Male";
-
-            $result = compact("name", "age", "gender");
-            print "<pre>";
-            print_r($result);
-            print "</pre>";
+            $person = array (
+                "name" => "Sazzad",
+                "age" => 22,
+                "gender" => "Male"
+            );
+            
+            extract($person);
+            
+            echo $name."<br>";
+            echo $age."<br>";
+            echo $gender;
         ?>
 
 
