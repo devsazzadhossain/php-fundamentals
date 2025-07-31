@@ -57,21 +57,17 @@
 
     <div class="main-content">
 
-        <h2>PHP asort() & arsort()</h2><br><hr/><br/>
+        <h2>PHP compact()</h2><br><hr/><br/>
 
         <?php
-            $num = array(
-                "a"=> "25",
-                "b"=> "18",
-                "c"=> "5",
-                "d"=> "30",
-                "e"=> "10"
-            );
-            asort($num); // ascending low to high
-            // arsort($num); descending high to low
-            foreach($num as $name=>$mark){
-                echo $name." = got ".$mark."<br>";
-            }
+            $name = "Sazzad";
+            $age = 22;
+            $gender = "Male";
+
+            $result = compact("name", "age", "gender");
+            print "<pre>";
+            print_r($result);
+            print "</pre>";
         ?>
 
 
