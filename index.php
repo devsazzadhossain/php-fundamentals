@@ -57,26 +57,30 @@
 
     <div class="main-content">
 
-        <h2>PHP current(), next(), prev(), end() reset()</h2><br><hr/><br/>
+        <h2>PHP in_array()</h2><br><hr/><br/>
 
         <?php
-            $playlist = array ("Song A", "Song B", "Song C");
+            $names = array ("Sazzad", "Sajedur", "Raihan", "Rafi");
 
             print "<pre>";
-            print_r($playlist);
+            print_r($names);
             print "</pre><br>";
-            
-            echo "Current Value: ".current($playlist)."<br>";   // Song A (starts at the first song)
-            echo "Next Value: ".next($playlist)."<br>";     // Song B (moved forward)
-            echo "Current Value: ".current($playlist)."<br>";
-            echo "End Value: ".end($playlist)."<br>";       // Song C (jumped to last song)
-            echo "Current Value: ".current($playlist)."<br>";
-            echo "Previous Value: ".prev($playlist)."<br>";     // Song B (went back)
-            echo "Current Value: ".current($playlist)."<br>";
-            echo "Reset Value: ".reset($playlist)."<br>";   // Song A (back to first)
-            echo "Current Value: ".current($playlist)."<br>";
+
+            if(isset($_POST['username'])){
+                $name = $_POST['username'];
+                
+                if(in_array($name, $names)){
+                    echo "The name $name exist in the array.";
+                }   else{
+                    echo "The name $name does not exist in the array.";
+                }
+            }
         ?>
 
+        <form action="index.php" method="post">
+            <input type="text" name="username" id="">
+            <input type="submit" value="Submit">
+        </form>
 
 
     </div>
