@@ -57,16 +57,19 @@
 
     <div class="main-content">
 
-        <h2>Getting values from a text box using PHP</h2><br><hr/><br/>
+        <h2>Getting values from a text box using JavaScript</h2><br><hr/><br/>
 
-        <?php
-            if(isset($_POST['username'])){
-                $name = $_POST['username'];
-                echo "Username is : ".$name;
+        <script>
+            function formFunction(){
+                var name = document.myform.username.value;
+                var show_data = "Username is : "+name;
+                document.getElementById('result').innerHTML = show_data;
             }
-        ?>
+        </script>
 
-        <form action="" method="post">
+        <div id="result"></div>
+
+        <form action="" method="post" name="myform" id="java_form" onsubmit="formFunction(); return false;">
             <table>
                 <tr>
                     <td>Username</td>
