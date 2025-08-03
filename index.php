@@ -57,23 +57,31 @@
 
     <div class="main-content">
 
-        <h2>Getting values from a text box using JavaScript</h2><br><hr/><br/>
+        <h2>Getting values from Radio Buttons using PHP</h2><br><hr/><br/>
 
-        <script>
-            function formFunction(){
-                var name = document.myform.username.value;
-                var show_data = "Username is : "+name;
-                document.getElementById('result').innerHTML = show_data;
+        <?php
+            if(isset($_POST['gender'])){
+                $gender_name = $_POST['gender'];
+                
+                if($gender_name == "Male"){
+                    echo "You have selected <i>Male</i>";
+                }   elseif($gender_name == "Female"){
+                    echo "You have selected <i>Female</i>";
+                }   else{
+                    echo "You have selected <i>Others</i>";
+                }
             }
-        </script>
+        ?><br><br>
 
-        <div id="result"></div>
-
-        <form action="" method="post" name="myform" id="java_form" onsubmit="formFunction(); return false;">
+        <form action="" method="post" name="myform">
             <table>
                 <tr>
-                    <td>Username</td>
-                    <td><input type="text" name="username" id="" required></td>
+                    <td>Gender: </td>
+                    <td>
+                        <input type="radio" name="gender" value="Male">Male
+                        <input type="radio" name="gender" value="Female">Female
+                        <input type="radio" name="gender" value="Others">Others
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
