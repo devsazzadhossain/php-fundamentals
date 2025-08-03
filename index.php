@@ -57,44 +57,30 @@
 
     <div class="main-content">
 
-        <h2>PHP shuffle()</h2><br><hr/><br/>
+        <h2>Getting values from a text box using PHP</h2><br><hr/><br/>
 
         <?php
-            $numbers = ["Sazzad", "10", "20", "30", "40"];
-
-            echo "Before shuffle()<br><br>";
-            print "<pre>";
-            print_r($numbers);
-            print "</pre><br>";
-            
-            shuffle($numbers);
-            echo "After shuffle()<br><br>";
-
-            print "<pre>";
-            print_r($numbers);
-            print "</pre><br><hr><br>";
-
-            $words = array(
-                "A" => "Apple",
-                "B" => "Bat",
-                "C" => "Code",
-                "D" => "Dot"
-            );
-            
-            echo "Before shuffle()<br><br>";
-            print "<pre>";
-            print_r($words);
-            print "</pre><br>";
-
-            shuffle($words);
-
-            echo "After shuffle()<br><br>";
-            print "<pre>";
-            print_r($words);
-            print "</pre><br>";
+            if(isset($_POST['username'])){
+                $name = $_POST['username'];
+                echo "Username is : ".$name;
+            }
         ?>
 
-
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="username" id="" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Clear">
+                    </td>
+                </tr>
+            </table>
+        </form>
 
     </div>
 
