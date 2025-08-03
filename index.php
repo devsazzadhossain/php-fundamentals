@@ -57,30 +57,43 @@
 
     <div class="main-content">
 
-        <h2>PHP in_array()</h2><br><hr/><br/>
+        <h2>PHP shuffle()</h2><br><hr/><br/>
 
         <?php
-            $names = array ("Sazzad", "Sajedur", "Raihan", "Rafi");
+            $numbers = ["Sazzad", "10", "20", "30", "40"];
+
+            echo "Before shuffle()<br><br>";
+            print "<pre>";
+            print_r($numbers);
+            print "</pre><br>";
+            
+            shuffle($numbers);
+            echo "After shuffle()<br><br>";
 
             print "<pre>";
-            print_r($names);
+            print_r($numbers);
+            print "</pre><br><hr><br>";
+
+            $words = array(
+                "A" => "Apple",
+                "B" => "Bat",
+                "C" => "Code",
+                "D" => "Dot"
+            );
+            
+            echo "Before shuffle()<br><br>";
+            print "<pre>";
+            print_r($words);
             print "</pre><br>";
 
-            if(isset($_POST['username'])){
-                $name = $_POST['username'];
-                
-                if(in_array($name, $names)){
-                    echo "The name $name exist in the array.";
-                }   else{
-                    echo "The name $name does not exist in the array.";
-                }
-            }
+            shuffle($words);
+
+            echo "After shuffle()<br><br>";
+            print "<pre>";
+            print_r($words);
+            print "</pre><br>";
         ?>
 
-        <form action="index.php" method="post">
-            <input type="text" name="username" id="">
-            <input type="submit" value="Submit">
-        </form>
 
 
     </div>
