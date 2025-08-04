@@ -57,23 +57,25 @@
 
     <div class="main-content">
 
-        <h2>Getting values from Radio Buttons using PHP</h2><br><hr/><br/>
+        <h2>Getting values from Radio Buttons using JavaScript</h2><br><hr/><br/>
 
-        <?php
-            if(isset($_POST['gender'])){
-                $gender_name = $_POST['gender'];
-                
-                if($gender_name == "Male"){
-                    echo "You have selected <i>Male</i>";
-                }   elseif($gender_name == "Female"){
-                    echo "You have selected <i>Female</i>";
-                }   else{
-                    echo "You have selected <i>Others</i>";
+        <script>
+            function clickHere(){
+                var genderLength = document.myform.gender.length;
+                for(i=0; i<genderLength; i++){
+                    var genderChecked = document.myform.gender[i].checked;
+                    if(genderChecked){
+                        var genderValue = document.myform.gender.value;
+                    }
                 }
+                var genderResult = "You have selected : "+genderValue;
+                document.getElementById('showGender').innerHTML = genderResult;
             }
-        ?><br><br>
+        </script>
 
-        <form action="" method="post" name="myform">
+        <p id="showGender"></p><br>
+
+        <form action="" method="post" name="myform" onsubmit="clickHere(); return false;">
             <table>
                 <tr>
                     <td>Gender: </td>
