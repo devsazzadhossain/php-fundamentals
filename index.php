@@ -57,38 +57,33 @@
 
     <div class="main-content">
 
-        <h2>Getting values from Radio Buttons using JavaScript</h2><br><hr/><br/>
+        <h2>Get multiple checkbox values in PHP</h2><br><hr/><br/>
 
-        <script>
-            function clickHere(){
-                var genderLength = document.myform.gender.length;
-                for(i=0; i<genderLength; i++){
-                    var genderChecked = document.myform.gender[i].checked;
-                    if(genderChecked){
-                        var genderValue = document.myform.gender.value;
-                    }
+        <?php
+            if(isset($_POST['submit'])){
+                $lang = $_POST['language'];
+                echo "You have selected : ";
+                foreach($lang as $key=>$value){
+                    echo $value . ", ";
                 }
-                var genderResult = "You have selected : "+genderValue;
-                document.getElementById('showGender').innerHTML = genderResult;
             }
-        </script>
+            
+        ?>
 
-        <p id="showGender"></p><br>
-
-        <form action="" method="post" name="myform" onsubmit="clickHere(); return false;">
+        <form action="" method="post" name="myform">
             <table>
                 <tr>
-                    <td>Gender: </td>
+                    <td>Languages: </td>
                     <td>
-                        <input type="radio" name="gender" value="Male">Male
-                        <input type="radio" name="gender" value="Female">Female
-                        <input type="radio" name="gender" value="Others">Others
+                        <input type="checkbox" name="language[]" value="PHP">PHP
+                        <input type="checkbox" name="language[]" value="JavaScript">JavaScript
+                        <input type="checkbox" name="language[]" value="C++">C++
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Submit">
+                        <input type="submit" name="submit" value="Submit">
                         <input type="reset" value="Clear">
                     </td>
                 </tr>
