@@ -57,27 +57,42 @@
 
     <div class="main-content">
 
-        <h2>Get multiple checkbox values in PHP</h2><br><hr/><br/>
+        <h2>Get multiple checkbox values in JavaScript</h2><br><hr/><br/>
 
-        <?php
-            if(isset($_POST['submit'])){
-                $lang = $_POST['language'];
-                echo "You have selected : ";
-                foreach($lang as $key=>$value){
-                    echo $value . ", ";
+        <script>
+            function multicheck(){
+                var length = document.myform.language.length;
+                var get_value = "";
+
+                for(i=0; i<length; i++){
+                    var selected = document.myform.language[i].checked;
+                    if(selected){
+                        get_value += document.myform.language[i].value + ", ";
+                    }
                 }
+
+                if(get_value !==""){
+                    get_value = get_value.slice(0, -2);
+                    var result = "You have selected : " + get_value;
+                }   else{
+                    var result = "You have not selected any language";
+                }
+
+                document.getElementById('state').innerHTML = result;
             }
             
-        ?>
+        </script>
 
-        <form action="" method="post" name="myform">
+        <p id="state"></p>
+
+        <form action="" method="post" name="myform" onsubmit="multicheck(); return false;">
             <table>
                 <tr>
                     <td>Languages: </td>
                     <td>
-                        <input type="checkbox" name="language[]" value="PHP">PHP
-                        <input type="checkbox" name="language[]" value="JavaScript">JavaScript
-                        <input type="checkbox" name="language[]" value="C++">C++
+                        <input type="checkbox" name="language" value="PHP">PHP
+                        <input type="checkbox" name="language" value="JavaScript">JavaScript
+                        <input type="checkbox" name="language" value="C++">C++
                     </td>
                 </tr>
                 <tr>
