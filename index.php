@@ -57,43 +57,27 @@
 
     <div class="main-content">
 
-        <h2>Get multiple checkbox values in JavaScript</h2><br><hr/><br/>
+        <h2>Get selected option value in PHP</h2><br><hr/><br/>
 
-        <script>
-            function multicheck(){
-                var length = document.myform.language.length;
-                var get_value = "";
-
-                for(i=0; i<length; i++){
-                    var selected = document.myform.language[i].checked;
-                    if(selected){
-                        get_value += document.myform.language[i].value + ", ";
-                    }
-                }
-
-                if(get_value !==""){
-                    get_value = get_value.slice(0, -2);
-                    var result = "You have selected : " + get_value;
-                }   else{
-                    var result = "You have not selected any language";
-                }
-
-                document.getElementById('state').innerHTML = result;
+        <?php
+            if(isset($_POST['submit'])){
+                $result = $_POST['language'];
+                echo "You have selected : " . $result; 
             }
-            
-        </script>
+        ?>
 
-        <p id="state"></p>
-
-        <form action="" method="post" name="myform" onsubmit="multicheck(); return false;">
+        <form action="" method="post" name="myform">
             <table>
                 <tr>
                     <td>Languages: </td>
                     <td>
-                        <input type="checkbox" name="language" value="PHP">PHP
-                        <input type="checkbox" name="language" value="JavaScript">JavaScript
-                        <input type="checkbox" name="language" value="C++">C++
-                    </td>
+                        <select name="language">
+                            <option >Select a language</option>
+                            <option value="PHP">PHP</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </td> 
                 </tr>
                 <tr>
                     <td></td>
