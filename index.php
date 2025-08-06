@@ -57,16 +57,20 @@
 
     <div class="main-content">
 
-        <h2>Get selected option value in PHP</h2><br><hr/><br/>
+        <h2>Get selected option value in JavaScript</h2><br><hr/><br/>
 
-        <?php
-            if(isset($_POST['submit'])){
-                $result = $_POST['language'];
-                echo "You have selected : " . $result; 
+        <script>
+            function selectOption(){
+                var index = document.myform.language.selectedIndex;     // get index
+                var get_value = document.myform.language.options[index].value;      //get value
+                var show_data = "You have selected : " + get_value;
+                document.getElementById('result').innerHTML = show_data;
             }
-        ?>
+        </script>
 
-        <form action="" method="post" name="myform">
+        <p id="result"></p>
+
+        <form action="" method="post" name="myform" onsubmit="selectOption(); return false;">
             <table>
                 <tr>
                     <td>Languages: </td>
