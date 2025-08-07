@@ -43,8 +43,57 @@
         min-height: 300px;
         padding: 30px;
     }
-    input[type="text"] {
-        width: 250px;
+    
+    form, table.output {
+        background-color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 25px;
+        max-width: 500px;
+        margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        color: #000;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-right: 8px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        padding: 8px 16px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007BFF;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: #0056b3;
     }
 
 </style>
@@ -57,29 +106,79 @@
 
     <div class="main-content">
 
-        <h2>Get selected option value in JavaScript</h2><br><hr/><br/>
+        <h2>Get data from a data table in JavaScript</h2><br><hr/><br/>
 
         <script>
-            function selectOption(){
-                var index = document.myform.language.selectedIndex;     // get index
-                var get_value = document.myform.language.options[index].value;      //get value
-                var show_data = "You have selected : " + get_value;
-                document.getElementById('result').innerHTML = show_data;
+            function data_table(){
+                // name field data
+                var get_name = document.myform.username.value;
+                document.getElementById('show-name').innerHTML = get_name;
+ 
+                // gender radio data
+                var gender_length = document.myform.gender.length;
+                var gender_value = "";
+                for(i=0; i<gender_length; i++){
+                    var gender_checked = document.myform.gender[i].checked;
+                    if(gender_checked){
+                        gender_value = document.myform.gender[i].value;
+                    }
+                }
+                document.getElementById('show-gender').innerHTML = gender_value;
+
+                // hobby checkbox data
+                var hobby_length = document.myform.hobby.length;
+                var hobby_value = "";
+                for(i=0; i<hobby_length; i++){
+                    var hobby_checked = document.myform.hobby[i].checked;
+                    if(hobby_checked){
+                        hobby_value += document.myform.hobby[i].value + ", ";
+                    }
+                }
+                if(hobby_value !== ""){
+                    hobby_value = hobby_value.slice(0, -2);
+                }
+                document.getElementById('show-hobby').innerHTML = hobby_value;
+
+                // district option data
+                var district_index = document.myform.district.selectedIndex;
+                var district_value = document.myform.district.options[district_index].value;
+                document.getElementById('show-district').innerHTML = district_value;
             }
         </script>
 
-        <p id="result"></p>
-
-        <form action="" method="post" name="myform" onsubmit="selectOption(); return false;">
+        
+        <form action="" name="myform" onsubmit="data_table(); return false;">
             <table>
                 <tr>
-                    <td>Languages: </td>
+                    <td>Name: </td>
                     <td>
-                        <select name="language">
-                            <option >Select a language</option>
-                            <option value="PHP">PHP</option>
-                            <option value="JavaScript">JavaScript</option>
-                            <option value="C++">C++</option>
+                        <input type="text" name="username" required>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>Gender: </td>
+                    <td>
+                        <input type="radio" name="gender" value="Male" required>Male
+                        <input type="radio" name="gender" value="Female">Female
+                    </td> 
+                </tr>
+                <tr>
+                    <td>Hobby: </td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="Traveling">Traveling
+                        <input type="checkbox" name="hobby" value="Photography">Photography
+                        <input type="checkbox" name="hobby" value="Reading">Reading
+                        <input type="checkbox" name="hobby" value="Others">Others
+                    </td> 
+                </tr>
+                <tr>
+                    <td>District: </td>
+                    <td>
+                        <select name="district" required>
+                            <option value="">Select your district</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Khulna">Khulna</option>
                         </select>
                     </td> 
                 </tr>
@@ -92,6 +191,29 @@
                 </tr>
             </table>
         </form>
+
+        
+        <table class="output">
+            <tr>
+                <td colspan="2" align="center"><b>Output</b></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><span id="show-name"></span></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><span id="show-gender"></span></td>
+            </tr>
+            <tr>
+                <td>Hobby</td>
+                <td><span id="show-hobby"></span></td>
+            </tr>
+            <tr>
+                <td>District</td>
+                <td><span id="show-district"></span></td>
+            </tr>
+        </table>
 
     </div>
 
