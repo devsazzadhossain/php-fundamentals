@@ -106,48 +106,45 @@
 
     <div class="main-content">
 
-        <h2>Get data from a data table in JavaScript</h2><br><hr/><br/>
+        <h2>Get data from a data table in PHP</h2><br><hr/><br/>
 
-        <script>
-            function data_table(){
-                // name field data
-                var get_name = document.myform.username.value;
-                document.getElementById('show-name').innerHTML = get_name;
- 
-                // gender radio data
-                var gender_length = document.myform.gender.length;
-                var gender_value = "";
-                for(i=0; i<gender_length; i++){
-                    var gender_checked = document.myform.gender[i].checked;
-                    if(gender_checked){
-                        gender_value = document.myform.gender[i].value;
-                    }
-                }
-                document.getElementById('show-gender').innerHTML = gender_value;
+        <?php
+            if(isset($_POST['submit'])){
+                $name = $_POST['username'];
+                $gender = $_POST['gender'];
+                $hobby = $_POST['hobby'];
+                $district = $_POST['district'];
+        ?>
 
-                // hobby checkbox data
-                var hobby_length = document.myform.hobby.length;
-                var hobby_value = "";
-                for(i=0; i<hobby_length; i++){
-                    var hobby_checked = document.myform.hobby[i].checked;
-                    if(hobby_checked){
-                        hobby_value += document.myform.hobby[i].value + ", ";
-                    }
-                }
-                if(hobby_value !== ""){
-                    hobby_value = hobby_value.slice(0, -2);
-                }
-                document.getElementById('show-hobby').innerHTML = hobby_value;
+        <table class="output">
+            <tr>
+                <td colspan="2" align="center"><b>Output</b></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><?php echo $name; ?></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <?php  if($gender == "Male"){  ?>
+                        <td><?php echo "Male";?></td>
+                <?php } elseif($gender == "Female"){ ?>
+                    <td><?php echo "Female";?></td>
+                <?php } ?> 
+            </tr>
+            <tr>
+                <td>Hobby</td>
+                <td><?php echo implode(", ", $hobby);?></td>
+            </tr>
+            <tr>
+                <td>District</td>
+                <td><?php echo $district;?></td>
+            </tr>
+        </table>
 
-                // district option data
-                var district_index = document.myform.district.selectedIndex;
-                var district_value = document.myform.district.options[district_index].value;
-                document.getElementById('show-district').innerHTML = district_value;
-            }
-        </script>
-
-        
-        <form action="" name="myform" onsubmit="data_table(); return false;">
+        <?php } ?>
+                
+        <form action="" name="myform" method="post">
             <table>
                 <tr>
                     <td>Name: </td>
@@ -165,10 +162,10 @@
                 <tr>
                     <td>Hobby: </td>
                     <td>
-                        <input type="checkbox" name="hobby" value="Traveling">Traveling
-                        <input type="checkbox" name="hobby" value="Photography">Photography
-                        <input type="checkbox" name="hobby" value="Reading">Reading
-                        <input type="checkbox" name="hobby" value="Others">Others
+                        <input type="checkbox" name="hobby[]" value="Traveling">Traveling
+                        <input type="checkbox" name="hobby[]" value="Photography">Photography
+                        <input type="checkbox" name="hobby[]" value="Reading">Reading
+                        <input type="checkbox" name="hobby[]" value="Others">Others
                     </td> 
                 </tr>
                 <tr>
@@ -193,28 +190,7 @@
         </form>
 
         
-        <table class="output">
-            <tr>
-                <td colspan="2" align="center"><b>Output</b></td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td><span id="show-name"></span></td>
-            </tr>
-            <tr>
-                <td>Gender</td>
-                <td><span id="show-gender"></span></td>
-            </tr>
-            <tr>
-                <td>Hobby</td>
-                <td><span id="show-hobby"></span></td>
-            </tr>
-            <tr>
-                <td>District</td>
-                <td><span id="show-district"></span></td>
-            </tr>
-        </table>
-
+        
     </div>
 
     <footer class="footer-area">
